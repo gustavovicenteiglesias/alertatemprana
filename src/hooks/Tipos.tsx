@@ -44,10 +44,7 @@
   }
   //dia
 
-  export interface Dias{
-    
-
-  }
+  
   export interface Dia 
   {
    
@@ -72,7 +69,7 @@
     visibility: number,
     weather: {
       description: string,
-      id: string | "3"
+      id: string 
     },
     wind: {
       deg: number,
@@ -82,8 +79,18 @@
   }
 
  
- 
-  export interface APIResponseDia{
-
+ //Situacion
+  export interface APISituacion{
+    data: {
+      id: number,
+      hora: string,
+      fecha: string,
+      altura_fecha: number,
+      situacion: string,
+      estado_compuertas: string,
+      estado_compuertas_porciento: string
+      },
+      success: boolean,
+      message: string
     
   }

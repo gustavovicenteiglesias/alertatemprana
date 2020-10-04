@@ -1,5 +1,6 @@
 ion-content.background{
     --background: url(../assest/image/alertas/rio.jpg) 0 0/100% 100% no-repeat;
+    
 }
 
 ion-alert.background{
@@ -11,8 +12,7 @@ ion-alert.background{
 ion-card{
 
     background: rgba(228, 208, 208, 0.205);
-    padding: 0px;
-    margin: 0px;
+   
 }
 
 ion-item{
@@ -40,11 +40,40 @@ ion-datetime{
     margin: 0px;
 }
 
-#fotohead{
+#rio{
+position:relative; 
+top:2.5px; 
+bottom: 20px;
 
-    margin-left: 30px;
+width: 97.7%;
+height: 295px;
+margin-left: 5px;
+border-radius: 3px;
+background-color:rgba(228, 208, 208, 0.50) ;
 }
-ion-text{
-   
-    font-size: 15px;
+@media only screen and (min-width:768px){
+    #rio{
+        position:relative; 
+        top:-0px; 
+        bottom: 20px;
+        left:-20px; 
+        width: 98.5%;
+        height: 300px;
+        margin-left: 27px;
+        margin-right: 10px;
+        background-color:rgba(228, 208, 208, 0.40) ;
+        }
+}
+@media only screen and (min-width:1024px){
+    #rio{
+        position:relative; 
+        top:-0px; 
+        bottom: 20px;
+        left:-20px; 
+        width: 99%;
+        height: 300px;
+        margin-left: 27px;
+        margin-right: 27px;
+        background-color:rgba(228, 208, 208, 0.40) ;
+        }
 }

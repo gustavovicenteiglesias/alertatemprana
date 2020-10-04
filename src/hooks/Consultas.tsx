@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { get } from "./Tiempo";
-import { APIResponse, Dia, Forescast, APIResponseDia } from "./Tipos";
+import { APIResponse, Dia, Forescast,  APISituacion } from "./Tipos";
 
 
 
@@ -38,4 +38,24 @@ export const useGetDia=()=>{
         return () => clearInterval(interval);
 },[]);
   return dia;
+}
+
+export const useGetSituacion=()=>{
+
+  const [situacion,setSituacion] = useState<APISituacion>();
+  const url ="https://pure-crag-50511.herokuapp.com/v1/situacion/ultimo"; 
+    const getData = async () => {
+      const situaciones = await get<APISituacion>(url);
+      setSituacion(situaciones)
+      }
+ 
+      useEffect(()=>{
+        getData()
+        const interval = setInterval(() => {
+          getData()
+          
+        }, 100000);
+        return () => clearInterval(interval);
+},[]);
+  return situacion;
 }

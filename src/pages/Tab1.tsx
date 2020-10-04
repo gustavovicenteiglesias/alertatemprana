@@ -10,22 +10,28 @@ import './Tab1.css';
 import Extendido from '../components/Extendido';
 import EncabezadoDiaHoy from '../components/EncabezadoDiaHoy'
 import Rio from '../components/Rio';
+import Dibujo from '../components/Dibujo';
+import Barra from '../components/Barra.js';
+
 
 
 
 const Tab1: React.FC = () => {
   
-  //const data= useGetForescast()
+  
   
   //const diasemana="Domingo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado"
-
  
   return (
+    
     <IonPage>
     <IonContent class="background">
-    
     <EncabezadoDiaHoy></EncabezadoDiaHoy>
-    <Rio></Rio>
+    
+    <div id="rio">
+      <Barra></Barra>
+      <Dibujo></Dibujo>
+    </div>
     <Extendido></Extendido>
     </IonContent>
     </IonPage>
