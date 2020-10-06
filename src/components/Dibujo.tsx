@@ -16,6 +16,7 @@ const Dibujo : React.FC = () => {
     </div>
     <div className="titulorio">
     <h3>Altura Rio  {data1?.data.altura_fecha}</h3>
+    <h5>{data1?.data.situacion}</h5>
     <h5>Compuertas abiertas al {data1?.data.estado_compuertas_porciento} %</h5>
     </div>
     </div>

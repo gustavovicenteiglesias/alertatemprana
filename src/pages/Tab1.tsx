@@ -18,20 +18,13 @@ import Barra from '../components/Barra.js';
 
 const Tab1: React.FC = () => {
   
-  
-  
-  //const diasemana="Domingo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado"
  
   return (
     
     <IonPage>
     <IonContent class="background">
     <EncabezadoDiaHoy></EncabezadoDiaHoy>
-    
-    <div id="rio">
-      <Barra></Barra>
-      <Dibujo></Dibujo>
-    </div>
+    <Rio></Rio>
     <Extendido></Extendido>
     </IonContent>
     </IonPage>

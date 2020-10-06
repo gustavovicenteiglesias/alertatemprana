@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react';
-import { IonCol,IonHeader, IonPage,  IonRow, IonText,
+import { IonCol,IonHeader, IonItem, IonLabel, IonPage,  IonRow, IonText,
+  IonThumbnail,
             IonTitle, IonToolbar } from '@ionic/react';
 
 import './Extendido.css';
@@ -22,22 +23,34 @@ const EncabezadoDiaHoy: React.FC = () => {
     < >
       <IonHeader>
         <IonToolbar color="secondary">
-          <IonRow>
+        <IonItem>
+          <IonThumbnail slot="start">
+            <img src={require('../assest/image/'+dh +'.png')} />
+          </IonThumbnail>
+            <IonLabel>
+              <IonText color="light">
+              <h1>{diahoy?.temperature}°</h1>
+              </IonText>
+            </IonLabel>
+        </IonItem>
+          {/*<IonRow>
             <IonCol size="3">
-          <IonTitle>{diahoy?.temperature}°</IonTitle>
+          <IonText><h4>{diahoy?.temperature}°</h4></IonText>
             </IonCol>
+            
+            <IonCol size="3">
+          <img src={require('../assest/image/'+dh +'.png')}width="40" 
+          height="40" ></img>
+            </IonCol>
+
             <IonCol size="6">
             <IonText>{diahoy?.weather.description}</IonText>
             </IonCol>
-            <IonCol size="3">
-          <img src={require('../assest/image/'+dh +'.png')}width="40" 
-          height="40" id="fotohead"></img>
-            </IonCol>
-          </IonRow>
+          </IonRow>*/}
         </IonToolbar>
       </IonHeader>
      
-  
+     
     </>
   );
 };
