@@ -12,6 +12,7 @@ import EncabezadoDiaHoy from '../components/EncabezadoDiaHoy'
 import Rio from '../components/Rio';
 import Dibujo from '../components/Dibujo';
 import Barra from '../components/Barra.js';
+import RegistroLLuvias from '../components/RegistroLluvias';
 
 
 
@@ -25,6 +26,7 @@ const Tab1: React.FC = () => {
     <IonContent class="background">
     <EncabezadoDiaHoy></EncabezadoDiaHoy>
     <Rio></Rio>
+    <RegistroLLuvias></RegistroLLuvias>
     <Extendido></Extendido>
     </IonContent>
     </IonPage>
