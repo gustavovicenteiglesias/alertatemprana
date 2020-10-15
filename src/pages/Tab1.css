@@ -1,17 +1,9 @@
-ion-content.background{
-    --background: url(../assest/image/alertas/rio.jpg) 0 0/100% 100% no-repeat;
-    
-}
 
-ion-alert.background{
-    --background : url(../assest/image/alertas/Alerta1.jpeg) 0 0/100% 100% no-repeat;
-    --height:200px;
-    --width:10px;
-}
+
 
 ion-card{
 
-    background: rgba(228, 208, 208, 0.205);
+    background:rgba(82, 82, 81, 0.99) ;
    
 }
 
@@ -43,13 +35,13 @@ ion-datetime{
 #rio{
 position:relative; 
 top:-5px; 
-bottom: 20px;
+bottom: 30px;
 
 width: 97.7%;
 height: 295px;
 margin-left: 5px;
 border-radius: 3px;
-background-color:rgba(228, 208, 208, 0.50) ;
+background-color:rgba(153, 198, 187, 0.55) ;
 }
 .content{
     top:2.5px; 
@@ -57,12 +49,12 @@ background-color:rgba(228, 208, 208, 0.50) ;
     width: 97.7%;
     margin-left: 5px;
     border-radius: 3px;
-    background-color:rgba(228, 208, 208, 0.30) ;
+    background-color:rgba(82, 82, 81, 0.30) ;
 }
 @media only screen and (min-width:768px){
     #rio{
         position:relative; 
-        top:-0px; 
+        top:-5px; 
         bottom: 20px;
         left:-20px; 
         width: 98.5%;
@@ -72,10 +64,20 @@ background-color:rgba(228, 208, 208, 0.50) ;
         background-color:rgba(228, 208, 208, 0.40) ;
         }
 }
+
+.content{
+    top:2.5px; 
+    bottom: 20px;
+    width: 98.5%;
+    margin-left: 5px;
+    border-radius: 3px;
+    background-color:rgba(82, 82, 81, 0.30) ;
+}
+
 @media only screen and (min-width:1024px){
     #rio{
         position:relative; 
-        top:-0px; 
+        top:-5px; 
         bottom: 20px;
         left:-20px; 
         width: 99%;
@@ -83,5 +85,14 @@ background-color:rgba(228, 208, 208, 0.50) ;
         margin-left: 27px;
         margin-right: 27px;
         background-color:rgba(228, 208, 208, 0.40) ;
+        }
+
+        .content{
+            top:2.5px; 
+            bottom: 20px;
+            width: 99%;
+            margin-left: 5px;
+            border-radius: 3px;
+            background-color:rgba(82, 82, 81, 0.30) ;
         }
 }

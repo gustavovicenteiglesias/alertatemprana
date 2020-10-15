@@ -94,3 +94,18 @@
       message: string
     
   }
+  export interface ApiRegistros{
+    
+      data: {
+      id: number,
+      hora: string,
+      fecha: string,
+      lluvia_hoy: number,
+      lluvia_ayer: number,
+      lluvia_mes: number,
+      lluvia_ano: number
+      },
+      success: true,
+      message: "Successful load"
+      }
+  

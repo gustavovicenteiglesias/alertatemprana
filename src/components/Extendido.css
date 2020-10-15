@@ -1,24 +1,15 @@
-ion-content.background{
-    --background: url(../assest/image/alertas/rio.jpg) 0 0/100% 100% no-repeat;
-}
 
-ion-alert.background{
-    --background : url(../assest/image/alertas/Alerta1.jpeg) 0 0/100% 100% no-repeat;
-    --height:200px;
-    --width:10px;
-}
 
-ion-card{
 
-    background: rgba(228, 208, 208, 0.205);
+
+ion-card.extendido{
+
+    background: rgba(82, 82, 81, 0.30);
     padding: 0px;
     margin: 0px;
 }
 
-ion-item{
-    --background: rgba(228, 208, 208, 0.014);
-   
-}
+
 ion-card-subtitle{
     color: rgb(247, 242, 242);
 }

@@ -21,8 +21,8 @@ const EncabezadoDiaHoy: React.FC = () => {
   return (
     
     < >
-      <IonHeader>
-        <IonToolbar color="secondary">
+      
+        <IonToolbar >
         <IonItem>
           <IonThumbnail slot="start">
             <img src={require('../assest/image/'+dh +'.png')} />
@@ -48,7 +48,7 @@ const EncabezadoDiaHoy: React.FC = () => {
             </IonCol>
           </IonRow>*/}
         </IonToolbar>
-      </IonHeader>
+     
      
      
     </>

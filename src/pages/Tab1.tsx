@@ -23,11 +23,12 @@ const Tab1: React.FC = () => {
   return (
     
     <IonPage>
-    <IonContent class="background">
+    <IonContent >
     <EncabezadoDiaHoy></EncabezadoDiaHoy>
     <Rio></Rio>
-    <RegistroLLuvias></RegistroLLuvias>
     <Extendido></Extendido>
+    <RegistroLLuvias></RegistroLLuvias>
+    
     </IonContent>
     </IonPage>
     

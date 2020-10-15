@@ -17,11 +17,16 @@ const Extendido: React.FC = () => {
   const [pronostico, setPronostico] = useState();
   const data= useGetForescast()
   const diahoy= useGetDia()
-  const diasemana="Domingo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado"
+  const diasemana="DOM,LUN,MAR,MIE,JUE,VIE,SAB"
   if (data.length === 0) return null;
+  
  let dh=null;
   if (typeof(diahoy?.weather.id) === 'undefined') {
-     dh="20";
+     dh="3";
+  
+     
+
+
   }else{
       dh=diahoy?.weather.id
   }
@@ -34,14 +39,14 @@ const Extendido: React.FC = () => {
 
         <IonRow>
            <IonCol size="3">
-            <IonCard href="https://www.smn.gob.ar/">
+            <IonCard class="extendido">
               <IonItem >
-               <IonDatetime value={data[0].date} 
+               <IonDatetime value={data[0]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
               displayFormat="DDDD" ></IonDatetime>
               </IonItem>
-            <IonItem lines="full">
+            <IonItem >
             <IonThumbnail>
             <img src={require('../assest/image/'+dh+'.png')} width="auto" height="40"/>
                  </IonThumbnail>
@@ -49,13 +54,13 @@ const Extendido: React.FC = () => {
             </IonItem>
             <IonItem>
             <IonThumbnail>
-            <img src={require('../assest/image/'+data[0].night.weather.id+'.png')} width="auto" height="40"  />
+            <img src={require('../assest/image/'+data[0]?.night.weather.id+'.png')} width="auto" height="40"  />
            </IonThumbnail>
             </IonItem>
             <IonItem>
             <IonIcon icon={water} slot="start" size="small" />
             <IonText color="light">
-                {data[1].morning.rain_prob_range[1]}%
+                {data[1]?.morning.rain_prob_range[1]}%
            </IonText>
            
             </IonItem>
@@ -63,28 +68,28 @@ const Extendido: React.FC = () => {
             </IonCard>  
           </IonCol>
           <IonCol size="3">
-            <IonCard href="https://www.smn.gob.ar/">
+            <IonCard class="extendido" >
               <IonItem >
-               <IonDatetime value={data[1].date} 
+               <IonDatetime value={data[1]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
               displayFormat="DDDD" ></IonDatetime>
               </IonItem>
             <IonItem lines="full">
             <IonThumbnail>
-            <img src={require('../assest/image/'+data[1].morning.weather.id+'.png')} width="auto" height="40"/>
+            <img src={require('../assest/image/'+data[1]?.morning.weather.id+'.png')} width="auto" height="40"/>
                  </IonThumbnail>
                 
             </IonItem>
             <IonItem>
             <IonThumbnail>
-            <img src={require('../assest/image/'+data[1].afternoon.weather.id+'.png')} width="auto" height="40"  />
+            <img src={require('../assest/image/'+data[1]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
            </IonThumbnail>
             </IonItem>
             <IonItem>
             <IonIcon icon={water} slot="start" size="small" />
             <IonText color="light">
-            {data[1].morning.rain_prob_range[1]}%
+            {data[1]?.morning.rain_prob_range[1]}%
            </IonText>
            
             </IonItem>
@@ -92,28 +97,28 @@ const Extendido: React.FC = () => {
             </IonCard>  
           </IonCol>
           <IonCol size="3">
-            <IonCard href="https://www.smn.gob.ar/">
+            <IonCard class="extendido">
               <IonItem >
-               <IonDatetime value={data[2].date} 
+               <IonDatetime value={data[2]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
               displayFormat="DDDD" ></IonDatetime>
               </IonItem>
             <IonItem lines="full">
             <IonThumbnail>
-            <img src={require('../assest/image/'+data[2].morning.weather.id+'.png')} width="auto" height="40"/>
+            <img src={require('../assest/image/'+data[2]?.morning.weather.id+'.png')} width="auto" height="40"/>
                  </IonThumbnail>
                 
             </IonItem>
             <IonItem>
             <IonThumbnail>
-            <img src={require('../assest/image/'+data[2].afternoon.weather.id+'.png')} width="auto" height="40"  />
+            <img src={require('../assest/image/'+data[2]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
            </IonThumbnail>
             </IonItem>
             <IonItem>
             <IonIcon icon={water} slot="start" size="small" />
             <IonText color="light">
-            {data[2].morning.rain_prob_range[1]}%
+            {data[2]?.morning.rain_prob_range[1]}%
            </IonText>
            
             </IonItem>
@@ -122,28 +127,28 @@ const Extendido: React.FC = () => {
           </IonCol>
 
           <IonCol size="3">
-            <IonCard href="https://www.smn.gob.ar/">
+            <IonCard class="extendido">
               <IonItem >
-               <IonDatetime value={data[3].date} 
+               <IonDatetime value={data[3]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
               displayFormat="DDDD" ></IonDatetime>
               </IonItem>
             <IonItem lines="full">
             <IonThumbnail>
-            <img src={require('../assest/image/'+data[3].morning.weather.id+'.png')} width="auto" height="40"/>
+            <img src={require('../assest/image/'+data[3]?.morning.weather.id+'.png')} width="auto" height="40"/>
                  </IonThumbnail>
                 
             </IonItem>
             <IonItem>
             <IonThumbnail>
-            <img src={require('../assest/image/'+data[3].afternoon.weather.id+'.png')} width="auto" height="40"  />
+            <img src={require('../assest/image/'+data[3]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
            </IonThumbnail>
             </IonItem>
             <IonItem>
             <IonIcon icon={water} slot="start" size="small" />
             <IonText color="light">
-            {data[3].morning.rain_prob_range[1]}%
+            {data[3]?.morning.rain_prob_range[1]}%
            </IonText>
            
             </IonItem>

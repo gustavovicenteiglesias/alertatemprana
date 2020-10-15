@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { get } from "./Tiempo";
-import { APIResponse, Dia, Forescast,  APISituacion } from "./Tipos";
+import { APIResponse, Dia, Forescast,  APISituacion, ApiRegistros } from "./Tipos";
 
 
 
@@ -58,4 +58,22 @@ export const useGetSituacion=()=>{
         return () => clearInterval(interval);
 },[]);
   return situacion;
+}
+export const useGetRegistros=()=>{
+  const [registro,setRegistros] = useState<ApiRegistros>();
+  const url ="https://pure-crag-50511.herokuapp.com/v1/registros/ultimo"; 
+    const getData = async () => {
+      const registros = await get<ApiRegistros>(url);
+      setRegistros(registros)
+      }
+ 
+      useEffect(()=>{
+        getData()
+        const interval = setInterval(() => {
+          getData()
+          
+        }, 100000);
+        return () => clearInterval(interval);
+},[]);
+  return registro;
 }
