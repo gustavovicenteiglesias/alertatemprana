@@ -18,16 +18,22 @@ return (
     <IonPage>
        <IonHeader>
             <IonToolbar>
-                <IonButtons slot="start">
-                    <IonMenuButton />
-                </IonButtons>
-                <IonTitle>Teléfonos útiles</IonTitle>   
+            <IonItem>
+           <IonLabel>
+              <IonText color="light">
+              <IonTitle>Teléfonos útiles</IonTitle> 
+              </IonText>
+            </IonLabel>
+            <IonThumbnail slot="end">
+            <img src={require('../assest/image/logofull.png') } width="40" height="40" />
+          </IonThumbnail>
+        </IonItem>
             </IonToolbar>
         </IonHeader>
 
         <IonContent>
         <IonItem>
-            <IonLabel >Atención ciudadana</IonLabel>
+            <IonLabel >Atención al vecino</IonLabel>
             <IonButton  color="success" onClick={() => Call("2326470665")}>
                 <IonIcon icon={call}  />
             </IonButton>
@@ -51,7 +57,7 @@ return (
             </IonButton>
         </IonItem>
         <IonItem>
-            <IonLabel >Inclusión</IonLabel>
+            <IonLabel >Desarrollo Social</IonLabel>
             <IonButton  color="success" onClick={() => Call("2326470661")}>
                 <IonIcon icon={call}  />
             </IonButton>

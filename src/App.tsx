@@ -10,7 +10,7 @@ import {
   IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import {home, images,call} from 'ionicons/icons';
+import {home, body,call} from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -46,15 +46,15 @@ const App: React.FC = () => (
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={home} />
+            <IonIcon color="dark" icon={home} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab4" href="/tab4">
-            <IonIcon icon={images} />
+            <IonIcon color="dark" icon={body} />
             <IonLabel>Nosotros</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={call} />
+            <IonIcon color="dark" icon={call} />
             <IonLabel>Contactos</IonLabel>
           </IonTabButton>
         </IonTabBar>

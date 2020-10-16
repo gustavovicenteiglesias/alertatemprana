@@ -32,21 +32,11 @@ const EncabezadoDiaHoy: React.FC = () => {
               <h1>{diahoy?.temperature}°</h1>
               </IonText>
             </IonLabel>
+            <IonThumbnail slot="end">
+            <img src={require('../assest/image/logofull.png') } width="40" height="40" />
+          </IonThumbnail>
         </IonItem>
-          {/*<IonRow>
-            <IonCol size="3">
-          <IonText><h4>{diahoy?.temperature}°</h4></IonText>
-            </IonCol>
-            
-            <IonCol size="3">
-          <img src={require('../assest/image/'+dh +'.png')}width="40" 
-          height="40" ></img>
-            </IonCol>
-
-            <IonCol size="6">
-            <IonText>{diahoy?.weather.description}</IonText>
-            </IonCol>
-          </IonRow>*/}
+          
         </IonToolbar>
      
      

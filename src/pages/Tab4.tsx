@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonItem, IonLabel, IonPage, IonText, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab4.css';
 
@@ -8,7 +8,16 @@ const Tab4: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar >
-          <IonTitle>Nosotros</IonTitle>
+        <IonItem>
+           <IonLabel>
+              <IonText color="light">
+              <IonTitle>Nosotros</IonTitle> 
+              </IonText>
+            </IonLabel>
+            <IonThumbnail slot="end">
+            <img src={require('../assest/image/logofull.png') } width="40" height="40" />
+          </IonThumbnail>
+        </IonItem> 
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
