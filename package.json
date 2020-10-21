@@ -34,8 +34,8 @@
     "typescript": "3.8.3"
   },
   "scripts": {
-   
-    "start": "node server/server.js",
+    "start": "react-scripts start",
+    
     "build": "react-scripts build && npx cap copy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
