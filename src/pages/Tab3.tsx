@@ -46,13 +46,13 @@ return (
         </IonItem>
         <IonItem>
             <IonLabel >Bomberos</IonLabel>
-            <IonButton  color="success" onClick={() => Call("2326452600")}>
+            <IonButton  color="success" onClick={() => Call("100")}>
                 <IonIcon icon={call}  />
             </IonButton>
         </IonItem>
         <IonItem>
             <IonLabel >Hospital</IonLabel>
-            <IonButton  color="success" onClick={() => Call("2326452759")}>
+            <IonButton  color="success" onClick={() => Call("107")}>
                 <IonIcon icon={call}  />
             </IonButton>
         </IonItem>
@@ -80,3 +80,7 @@ return (
 );
 };
 export default Tab3
+
+
+
+

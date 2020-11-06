@@ -12,12 +12,13 @@ const Dibujo : React.FC = () => {
   return (
     <div>
     <div className="alturario">
-    <img src={dibujo} width="300" height="250" />
+    <img src={dibujo} width="200" height="150" />
     </div>
     <div className="titulorio">
-    <h3>Altura Rio  {data1?.data.altura_fecha}</h3>
-    <h5>{data1?.data.situacion}</h5>
-    <h5>Compuertas abiertas al {data1?.data.estado_compuertas_porciento} %</h5>
+    <h5>Altura Rio  {data1?.data.altura_fecha} m</h5>
+    <p className="compuerta">{data1?.data.situacion}</p>
+    <p className="compuerta">Compuertas abiertas </p>
+    <p>al {data1?.data.estado_compuertas_porciento} %</p>
     </div>
     </div>
   )

@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-restricted-globals */
+import React, {useEffect} from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
@@ -30,11 +31,34 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-
+import {Botonatras}from './components/useBotonatras'
 /* Theme variables */
 import './theme/variables.css';
+import { Plugins, Capacitor } from '@capacitor/core';
 
-const App: React.FC = () => (
+
+
+const App: React.FC = () => {
+  useEffect(() => {
+    if (Capacitor.isNative) {
+      Plugins.App.addListener("backButton", (e) => {
+        if (window.location.pathname === "/") {
+          // Show A Confirm Box For User to exit app or not
+          let ans = window.confirm("Are you sure");
+          if (ans) {
+            Plugins.App.exitApp();
+          } 
+        } else if (window.location.pathname === "/tab1") {
+           // Show A Confirm Box For User to exit app or not
+          let ans = window.confirm("Are you sure");
+          if (ans) {
+            Plugins.App.exitApp();
+          } 
+        } 
+      });
+    }
+  }, []);
+return(
   <IonApp>
     <IonReactRouter>
       <IonTabs>
@@ -62,5 +86,5 @@ const App: React.FC = () => (
     </IonReactRouter>
   </IonApp>
 );
-
+}
 export default App;

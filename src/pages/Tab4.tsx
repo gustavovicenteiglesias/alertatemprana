@@ -21,17 +21,16 @@ const Tab4: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-       <img src={require('../assest/image/logofull.png')} className="logoareco" 
-        width="150px" height="150px"/>
-        <p>Esta aplicación es un desarrollo del Municipio de San Antonio de Areco
-           y forma parte de su Plan Municipal de Gestión de Riesgo para alertar de
-            manera temprana sobre las crecidas del rio Areco y de fenómenos meteorológicos
-             que puedan afectar a la ciudad.</p>
-        <p>El sistema de Alerta temprana obtuvo el premio latinoamericano al Buen Gobierno 
-          Municipal Otorgado por la Federación Latinoamericana de ciudades en 2017.</p>
+      {/* <img src={require('../assest/image/logofull.png')} className="logoareco" 
+        width="150px" height="150px"/> */}
+        <p>Esta aplicación es un desarrollo del Municipio de San Antonio de Areco y forma parte 
+          de su Sistema Municipal de Gestión de Riesgos (SMGR) para alertar de manera temprana 
+          sobre las crecidas del Río Areco y de los fenómenos meteorológicos que puedan afectar a la ciudad.</p>
+        <p>El SMGR y la aplicación "SAT Areco" son acciones de Adaptación al Cambio Climático
+           definidas en el Plan Local de Acción Climática de San Antonio de Areco 2020-2030.</p>
           <img src={require('../assest/image/banner.png')}  width="390" height="240" className="logobanner" />
       </IonContent>
-      
+ 
     </IonPage>
   );
 };

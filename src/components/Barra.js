@@ -19,13 +19,14 @@ function Barra (){
   
     
     return (
+      <div class="barra">
       <BarChart
-       
-        width={360}
-        height={300}
+        
+        width={280}
+        height={200}
         data={[
           {
-            name: 'Page A', uv:data1?.data.altura_fecha 
+            name: 'Page A', uv:data1?.data.altura_fecha
           },
         
         ]}
@@ -42,6 +43,7 @@ function Barra (){
         
         <Bar dataKey="uv" fill="rgb(37, 172, 196,0.5)" id="barra"  barSize={340} padding={{right:5}} />
       </BarChart>
+      </div>
     );
   
 }

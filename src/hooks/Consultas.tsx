@@ -1,9 +1,25 @@
 import { useEffect, useState } from "react";
 import { get } from "./Tiempo";
-import { APIResponse, Dia, Forescast,  APISituacion, ApiRegistros } from "./Tipos";
+import { APIResponse, Dia, Forescast,  APISituacion, ApiRegistros, AlertaMUltimo } from "./Tipos";
 
 
+export const useGetAM = () => {
+  const [aMeteologico , setAMeteologico ] = useState<AlertaMUltimo>();
+  const getData = async () => {
+    const  alertas = await get<AlertaMUltimo>('https://pure-crag-50511.herokuapp.com/v1/alertameteorologico/ultimo');
+    setAMeteologico(alertas)
+    }
+    useEffect(()=>{
+      getData()
+      const interval = setInterval(() => {
+        getData()
+        
+      }, 100000);
+      return () => clearInterval(interval);
+},[]);
 
+  return aMeteologico;
+}
 
 export const useGetForescast = () => {
     const [extendido , setExtendido] = useState<Forescast[]>([]);
@@ -11,11 +27,14 @@ export const useGetForescast = () => {
       const { forecast } = await get<APIResponse>('https://pure-crag-50511.herokuapp.com/v1/getPronostico');
       setExtendido(forecast)
       }
-    useEffect(()=>{
-      
-    getData()
-      
-    },[]);
+      useEffect(()=>{
+        getData()
+        const interval = setInterval(() => {
+          getData()
+          
+        }, 100000);
+        return () => clearInterval(interval);
+},[]);
   
     return extendido;
   }

@@ -4,7 +4,7 @@ import '../pages/Tab1.css'
 import { useGetRegistros } from '../hooks/Consultas';
 const RegistroLLuvias: React.FC = () => {
     const data=useGetRegistros();
-    console.log("Registros"+data)
+   
     return (
     
         

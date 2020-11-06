@@ -4,11 +4,27 @@
     type:string,
     updated:Date
   }*/
+  export interface AlertaMUltimo{
+    data: {
+      id: number,
+      hora: string,
+      fecha: string,
+      titulo: string,
+      zona: string,
+      situacion:string,
+      estado: number
+      }
+  }
+  export interface AlertaMeteorologica{
+    success: boolean,
+    message: string,
+    list:AlertaMUltimo[]
+  }
   export interface Forescast {
     afternoon:{ 
       rain_prob_range:{
-        0:number,
-        1:number
+        0:number ,
+        1:number 
       },
       weather:{
       description: string
@@ -18,17 +34,23 @@
     early_morning: {},
     humidity_max: number,
     humidity_min: number,
+    
     morning:{
       rain_prob_range:{
-        0:number,
-        1:number
+        0:number | null,
+        1:number | null
       },
       weather:{
         description: string
-        id: string | null
+        id: string 
       }
-    },
+    }
+    ,
     night:{
+      rain_prob_range:{
+        0:number | null,
+        1:number | null
+      },
       weather:{
         description: string
         id: string | null
