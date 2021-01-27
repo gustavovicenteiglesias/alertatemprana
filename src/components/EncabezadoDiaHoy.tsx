@@ -23,7 +23,7 @@ const EncabezadoDiaHoy: React.FC = () => {
     }else{
       dh=diahoy?.weather.id
     }
-    if (AM?.data.estado == 1) {
+    if (AM?.data.estado === 1) {
       alerta=false
     } else {
       alerta=true
@@ -59,7 +59,7 @@ const EncabezadoDiaHoy: React.FC = () => {
             
         <IonItem>
           <IonThumbnail slot="start">
-            <img src={require('../assest/image/'+dh +'.png')} />
+            <img alt="" src={require('../assest/image/'+dh +'.png')} />
           </IonThumbnail>
             <IonLabel>
               <IonText color="light">
@@ -67,12 +67,12 @@ const EncabezadoDiaHoy: React.FC = () => {
               </IonText>
             </IonLabel>
             
-            <img src={require('../assest/image/alertas/admeteo.png') } width="30" height="30" 
+            <img alt='' src={require('../assest/image/alertas/admeteo.png') } width="30" height="30" 
             hidden={alerta} onClick={() => setShowModal(true)}
             />
           
             <IonThumbnail slot="end">
-            <img src={require('../assest/image/logofull.png') } width="40" height="40" />
+            <img alt='' src={require('../assest/image/logofull.png') } width="40" height="40" />
           </IonThumbnail>
         </IonItem>
         <IonModal isOpen={showModal} cssClass='modal-class' onDidDismiss={() => setShowModal(false)} >

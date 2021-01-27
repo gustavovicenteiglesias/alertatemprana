@@ -39,6 +39,7 @@ import { Plugins, Capacitor } from '@capacitor/core';
 
 
 const App: React.FC = () => {
+  
   useEffect(() => {
     if (Capacitor.isNative) {
       Plugins.App.addListener("backButton", (e) => {

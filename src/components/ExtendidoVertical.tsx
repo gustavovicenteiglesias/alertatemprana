@@ -70,7 +70,7 @@ const Extendido: React.FC = () => {
               }}/>
               <div  >
               <IonThumbnail  className="foto" >
-              <img src={require('../assest/image/'+dh+'.png')} width="auto" height="40" hidden={visible} />
+              <img alt="" src={require('../assest/image/'+dh+'.png')} width="auto" height="40" hidden={visible} />
               </IonThumbnail>
               </div>
               
@@ -92,12 +92,12 @@ const Extendido: React.FC = () => {
               }}/>
               
               <IonThumbnail className="foto">
-              <img src={require('../assest/image/'+data[0]?.night.weather.id+'.png')} width="auto" height="40"  />
+              <img alt="" src={require('../assest/image/'+data[0]?.night.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
               <IonIcon icon={water}  size="small" />
               <div className="texto">
-              {data[0]?.afternoon.rain_prob_range[0]}-{data[0]?.afternoon.rain_prob_range[1]}%
+              {data[0]?.night.rain_prob_range[0]}-{data[0]?.night.rain_prob_range[1]}%
               </div>
                 </IonRow>
                
@@ -125,7 +125,7 @@ const Extendido: React.FC = () => {
               }}/>
               <div  >
               <IonThumbnail  className="foto">
-              <img src={require('../assest/image/'+data[1]?.morning.weather.id+'.png')}
+              <img alt="" src={require('../assest/image/'+data[1]?.morning.weather.id+'.png')}
                width="auto" height="40" hidden={false}/>
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
@@ -143,7 +143,7 @@ const Extendido: React.FC = () => {
               }}/>
               </div>
               <IonThumbnail className="foto">
-              <img src={require('../assest/image/'+data[1]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
+              <img alt="" src={require('../assest/image/'+data[1]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
               <IonIcon icon={water}  size="small" />
@@ -176,7 +176,7 @@ const Extendido: React.FC = () => {
               }}/>
               <div  >
               <IonThumbnail  className="foto">
-              <img src={require('../assest/image/'+data[2]?.morning.weather.id+'.png')} 
+              <img alt="" src={require('../assest/image/'+data[2]?.morning.weather.id+'.png')} 
                width="auto" height="40" hidden={false}/>
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
@@ -194,7 +194,7 @@ const Extendido: React.FC = () => {
               }}/>
               </div>
               <IonThumbnail className="foto">
-              <img src={require('../assest/image/'+data[2]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
+              <img alt=""  src={require('../assest/image/'+data[2]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
               <IonIcon icon={water}  size="small" />
@@ -226,7 +226,7 @@ const Extendido: React.FC = () => {
               }}/>
               <div  >
               <IonThumbnail  className="foto">
-              <img src={require('../assest/image/'+data[3]?.morning.weather.id+'.png')} 
+              <img alt="" src={require('../assest/image/'+data[3]?.morning.weather.id+'.png')} 
                width="auto" height="40" hidden={false}/>
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
@@ -244,7 +244,7 @@ const Extendido: React.FC = () => {
               }}/>
               </div>
               <IonThumbnail className="foto">
-              <img src={require('../assest/image/'+data[3]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
+              <img alt="" src={require('../assest/image/'+data[3]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
               <IonIcon icon={water}  size="small" />

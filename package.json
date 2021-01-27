@@ -1,4 +1,5 @@
 {
+  
   "name": "SATAreco",
   "version": "0.0.1",
   "private": true,
@@ -35,7 +36,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    
     "build": "react-scripts build && npx cap copy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
