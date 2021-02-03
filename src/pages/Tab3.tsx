@@ -34,52 +34,58 @@ return (
         <IonContent>
         <IonItem>
             <IonLabel >Atención al vecino</IonLabel>
-            
-            <IonButton  color="success" onClick={() => Call("2326470665")}>
+                
+            <IonButton  color="success" onClick={() => Call("2326470665")} disabled>
                 <IonIcon icon={call}  />
             </IonButton>
+            2326470665
         </IonItem>
         <IonItem>
             <IonLabel >Policia</IonLabel>
-            
-            <IonButton  color="success" onClick={() => Call("2326452113")}>
+            <IonButton disabled color="success" onClick={() => Call("2326452113")}>
                 <IonIcon icon={call}  />
                 </IonButton>
+                2326452113
         </IonItem>
         <IonItem>
             <IonLabel >Bomberos</IonLabel>
            
-           <IonButton  color="success" onClick={() => Call("100")}>
+           <IonButton disabled color="success" onClick={() => Call("100")}>
                 <IonIcon icon={call}  />
             </IonButton>
+            100
         </IonItem>
         <IonItem>
             <IonLabel >Hospital</IonLabel>
            
-           <IonButton  color="success" onClick={() => Call("107")}>
+           <IonButton disabled color="success" onClick={() => Call("107")}>
                 <IonIcon icon={call}  />
             </IonButton>
+            107  
         </IonItem>
         <IonItem>
             <IonLabel >Desarrollo Social</IonLabel>
             
-            <IonButton  color="success" onClick={() => Call("2326470661")}>
+            <IonButton disabled color="success" onClick={() => Call("2326470661")}>
                 <IonIcon icon={call}  />
             </IonButton>
+            2326470661
         </IonItem>
         <IonItem>
             <IonLabel >CEOSP</IonLabel>
             
-            <IonButton  color="success" onClick={() => Call("2326452525")}>
+            <IonButton disabled color="success" onClick={() => Call("2326452525")}>
                 <IonIcon icon={call}  />
         </IonButton>
+            2326452525
         </IonItem>
         <IonItem>
             <IonLabel >Sanear</IonLabel>
             
-            <IonButton  color="success" onClick={() => Call("2326452391")}>
+            <IonButton disabled  color="success" onClick={() => Call("2326452391")}>
                 <IonIcon icon={call}  />
             </IonButton>
+            2326452391
         </IonItem>
 
         </IonContent>
