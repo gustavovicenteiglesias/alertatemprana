@@ -53,7 +53,10 @@ const Extendido: React.FC = () => {
               <IonDatetime value={data[0]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
-              displayFormat="DDDD" >
+              displayFormat="DDDD" 
+              disabled={true}
+              className="texto-dia"
+              >
               </IonDatetime>
               <div className="texto">
                 Tmin  {data[0].temp_min}° 
@@ -108,7 +111,10 @@ const Extendido: React.FC = () => {
               <IonDatetime value={data[1]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
-              displayFormat="DDDD" >
+              displayFormat="DDDD" 
+              disabled={true}
+              className="texto-dia"
+              >
               </IonDatetime>
               <div className="texto">
                 Tmin  {data[1].temp_min}° 
@@ -159,7 +165,10 @@ const Extendido: React.FC = () => {
               <IonDatetime value={data[2]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
-              displayFormat="DDDD" >
+              displayFormat="DDDD" 
+              disabled={true}
+              className="texto-dia"
+              >
               </IonDatetime>
               <div className="texto">
                 Tmin  {data[2].temp_min}° 
@@ -209,7 +218,10 @@ const Extendido: React.FC = () => {
            <IonDatetime value={data[3]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
-              displayFormat="DDDD" >
+              displayFormat="DDDD" 
+              disabled={true}
+              className="texto-dia"
+              >
               </IonDatetime>
               <div className="texto">
                 Tmin  {data[3].temp_min}° 

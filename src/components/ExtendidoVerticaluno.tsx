@@ -36,7 +36,10 @@ const Extendido: React.FC = () => {
               <IonDatetime value={data[4]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
-              displayFormat="DDDD" >
+              displayFormat="DDDD"
+              disabled={true}
+              className="texto-dia"
+              >
               </IonDatetime>
               <div className="texto">
                 Tmin  {data[4].temp_min}° 
@@ -53,7 +56,7 @@ const Extendido: React.FC = () => {
               }}/>
               <div  >
               <IonThumbnail  className="foto" >
-              <img src={require('../assest/image/'+data[4]?.morning.weather.id+'.png')} width="auto" height="40"  />
+              <img alt="" src={require('../assest/image/'+data[4]?.morning.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               </div>
               
@@ -92,7 +95,10 @@ const Extendido: React.FC = () => {
               <IonDatetime value={data[5]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
-              displayFormat="DDDD" >
+              displayFormat="DDDD" 
+              disabled={true}
+              className="texto-dia"
+              >
               </IonDatetime>
               <div className="texto">
                 Tmin  {data[5].temp_min}° 
@@ -147,7 +153,10 @@ const Extendido: React.FC = () => {
               <IonDatetime value={data[6]?.date} 
               display-timezone="utc" 
               day-names={diasemana}
-              displayFormat="DDDD" >
+              displayFormat="DDDD" 
+              disabled={true}
+              className="texto-dia"
+              >
               </IonDatetime>
               <div className="texto">
                 Tmin  {data[6].temp_min}° 

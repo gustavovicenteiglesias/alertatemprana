@@ -15,9 +15,9 @@ h4.color-text{
 }
 
 .texto{
-    color:rgb(247, 242, 242) ;
+    color:rgb(255,255,255,0.99) ;
     padding: 2px;
-    text-align: left;
+    text-align: center;
     
     font-size:65% ;
 
@@ -55,7 +55,7 @@ text-align: center;
 
 .extendidoVertical{
     
-    background: rgba(82, 82, 81, 0.30);
+    background: rgba(82, 82, 81, 0.50);
     border: solid 1px #ddd;
     
     margin: 3px;
@@ -97,3 +97,13 @@ ion-text{
     font-size: 15px;
 }
 
+.texto-dia{
+    color: rgb(255,255,255,0.99);
+    opacity: 0.99;
+}
+.lluvia {
+    /* margin-left: 1px; */
+    /* justify-items: center; */
+    /* justify-items: center; */
+    justify-content: center;
+}
