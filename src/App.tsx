@@ -45,7 +45,7 @@ const App: React.FC = () => {
       Plugins.App.addListener("backButton", (e) => {
         if (window.location.pathname === "/") {
           // Show A Confirm Box For User to exit app or not
-          let ans = window.confirm("Are you sure");
+          let ans = true//window.confirm("Are you sure");
           if (ans) {
             Plugins.App.exitApp();
           } 
