@@ -82,7 +82,7 @@ const Extendido: React.FC = () => {
               <IonRow   className="lluvia" hidden={false}>
               <IonIcon icon={water}  size="small" />
               
-                    <div className="texto">>
+                    <div className="texto">
                     {data[4]?.afternoon.rain_prob_range[0]}-{data[4]?.afternoon.rain_prob_range[1]}%
                     </div>
               

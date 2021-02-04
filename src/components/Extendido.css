@@ -107,3 +107,10 @@ ion-text{
     /* justify-items: center; */
     justify-content: center;
 }
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    /* margin-top: 20px; */
+}

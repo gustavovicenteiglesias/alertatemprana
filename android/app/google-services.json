@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "999678894601",
+    "project_id": "satareco-a13b5",
+    "storage_bucket": "satareco-a13b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999678894601:android:73991eb6c771031af88ed8",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999678894601-j7i9nld2guosbmqmp92o98p7kn4djbch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsArDYyxqBUyOez5a0NpQvg6nGtHj117w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999678894601-j7i9nld2guosbmqmp92o98p7kn4djbch.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

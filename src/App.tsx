@@ -35,10 +35,29 @@ import {Botonatras}from './components/useBotonatras'
 /* Theme variables */
 import './theme/variables.css';
 import { Plugins, Capacitor } from '@capacitor/core';
+import { PushNotification, PushNotificationToken, PushNotificationActionPerformed } from '@capacitor/core';
+const { PushNotifications } = Plugins;
+const push=()=> {
+  // Register with Apple / Google to receive push via APNS/FCM
+  PushNotifications.register();
 
+  // On succcess, we should be able to receive notifications
+  PushNotifications.addListener('registration',
+    (token: PushNotificationToken) => {
+      alert('Push registration success, token: ' + token.value);
+    }
+  );
 
-
-const App: React.FC = () => {
+  // Some issue with your setup and push will not work
+  PushNotifications.addListener('registrationError',
+    (error: any) => {
+      alert('Error on registration: ' + JSON.stringify(error));
+    }
+  );
+  }
+  const App: React.FC = () => {
+  
+ 
   
   useEffect(() => {
     if (Capacitor.isNative) {
