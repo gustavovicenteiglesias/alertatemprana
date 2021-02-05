@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { get } from "./Tiempo";
-import { APIResponse, Dia, Forescast,  APISituacion, ApiRegistros, AlertaMUltimo } from "./Tipos";
+import { get} from "./Tiempo";
+import { APIResponse, Dia, Forescast,  APISituacion, ApiRegistros, AlertaMUltimo,ApiToken } from "./Tipos";
 
 
 export const useGetAM = () => {

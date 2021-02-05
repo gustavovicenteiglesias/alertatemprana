@@ -36,7 +36,7 @@ import {Botonatras}from './components/useBotonatras'
 import './theme/variables.css';
 import { Plugins, Capacitor } from '@capacitor/core';
 import {  PushNotification, PushNotificationToken, PushNotificationActionPerformed } from '@capacitor/core';
-
+import axios from 'axios';
 const { PushNotifications } = Plugins;
 const App: React.FC = () => {
   
@@ -45,9 +45,16 @@ const App: React.FC = () => {
     PushNotifications.addListener('registration',
       (token: PushNotificationToken) => {
         //alert('Push registration success, token: ' + token.value);
+        axios.post('http://webnueva.areco.gob.ar:9526/api/token/get', token.value)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
         console.log(token.value);
       }
-    );
+    ); 
     PushNotifications.addListener('registrationError',
       (error: any) => {
         alert('Error on registration: ' + JSON.stringify(error));

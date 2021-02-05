@@ -130,4 +130,10 @@
       success: true,
       message: "Successful load"
       }
+
+export interface ApiToken{
+  id: number,
+  token_android: string
+}
+
   
