@@ -42,16 +42,18 @@ const App: React.FC = () => {
   
   useEffect(() => {
     PushNotifications.register();
-    /*PushNotifications.addListener('registration',
+    PushNotifications.addListener('registration',
       (token: PushNotificationToken) => {
-        alert('Push registration success, token: ' + token.value);
+        //alert('Push registration success, token: ' + token.value);
+        console.log(token.value);
       }
-    );*/
+    );
     PushNotifications.addListener('registrationError',
       (error: any) => {
         alert('Error on registration: ' + JSON.stringify(error));
       }
     );
+
     if (Capacitor.isNative) {
       Plugins.App.addListener("backButton", (e) => {
         if (window.location.pathname === "/") {
