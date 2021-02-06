@@ -35,33 +35,51 @@ import {Botonatras}from './components/useBotonatras'
 /* Theme variables */
 import './theme/variables.css';
 import { Plugins, Capacitor } from '@capacitor/core';
+
 import {  PushNotification, PushNotificationToken, PushNotificationActionPerformed } from '@capacitor/core';
 import axios from 'axios';
-const { PushNotifications } = Plugins;
+import { FCM } from '@capacitor-community/fcm';
+//const fcm = new FCM();
+const { PushNotifications, FCMPlugin} = Plugins;
 const App: React.FC = () => {
   
   useEffect(() => {
-    PushNotifications.register();
-    PushNotifications.addListener('registration',
-      (token: PushNotificationToken) => {
-        //alert('Push registration success, token: ' + token.value);
-        axios.post('http://webnueva.areco.gob.ar:9526/api/token/get', token.value)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-        console.log(token.value);
-      }
-    ); 
-    PushNotifications.addListener('registrationError',
-      (error: any) => {
-        alert('Error on registration: ' + JSON.stringify(error));
-      }
-    );
+
+   
 
     if (Capacitor.isNative) {
+
+      PushNotifications.register()
+      .then(() => {
+        //
+        // Subscribe to a specific topic
+        // you can use `FCMPlugin` or just `fcm`
+        FCMPlugin
+          .subscribeTo({ topic: 'alerta' })
+          .then(() => console.log("estas en SAT Areco"))
+          .catch(() => console.log("err"));
+      })
+      .catch((err) => alert(JSON.stringify(err)));
+      PushNotifications.addListener('registration',
+        (token: PushNotificationToken) => {
+          //alert('Push registration success, token: ' + token.value);
+         const data={token_android:token.value}
+          axios.post('http://webnueva.areco.gob.ar:9526/api/token/get', data)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+          console.log(token.value);
+        }
+      ); 
+      PushNotifications.addListener('registrationError',
+        (error: any) => {
+          alert('Error on registration: ' + JSON.stringify(error));
+        }
+      );
+
       Plugins.App.addListener("backButton", (e) => {
         if (window.location.pathname === "/") {
           // Show A Confirm Box For User to exit app or not

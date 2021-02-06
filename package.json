@@ -1,9 +1,9 @@
 {
-  
   "name": "SATAreco",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@capacitor-community/fcm": "^1.0.8",
     "@capacitor/android": "^2.4.1",
     "@capacitor/core": "2.4.1",
     "@ionic-native/call-number": "^5.28.0",
