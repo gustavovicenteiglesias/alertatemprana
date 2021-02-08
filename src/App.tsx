@@ -60,7 +60,7 @@ const App: React.FC = () => {
           .catch(() => console.log("err"));
       })
       .catch((err) => alert(JSON.stringify(err)));
-      PushNotifications.addListener('registration',
+     /* PushNotifications.addListener('registration',
         (token: PushNotificationToken) => {
           //alert('Push registration success, token: ' + token.value);
          const data={token_android:token.value}
@@ -73,7 +73,7 @@ const App: React.FC = () => {
           });
           console.log(token.value);
         }
-      ); 
+      ); */
       PushNotifications.addListener('registrationError',
         (error: any) => {
           alert('Error on registration: ' + JSON.stringify(error));
