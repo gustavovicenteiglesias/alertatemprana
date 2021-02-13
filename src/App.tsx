@@ -41,20 +41,23 @@ const {PushNotifications}=Plugins;
 
 const App: React.FC = () => {
   
+  
   useEffect(() => {
-    PushNotifications.register();
-    PushNotifications.addListener('registration',
-      (token: PushNotificationToken) => {
-        //alert('Push registration success, token: ' + token.value);
-        console.log(token.value);
-      }
-    );
-    PushNotifications.addListener('registrationError',
-      (error: any) => {
-        alert('Error on registration: ' + JSON.stringify(error));
-      }
-    );
+    
+   
     if (Capacitor.isNative) {
+      PushNotifications.register();
+      PushNotifications.addListener('registration',
+        (token: PushNotificationToken) => {
+          //alert('Push registration success, token: ' + token.value);
+          console.log(token.value);
+        }
+      );
+      PushNotifications.addListener('registrationError',
+        (error: any) => {
+          alert('Error on registration: ' + JSON.stringify(error));
+        }
+      );
       Plugins.App.addListener("backButton", (e) => {
         if (window.location.pathname === "/") {
           // Show A Confirm Box For User to exit app or not

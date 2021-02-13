@@ -22,6 +22,7 @@
     "@types/react-router-dom": "^5.1.3",
     "axios": "^0.20.0",
     "call-number": "^1.0.1",
+    "firebase": "^8.2.6",
     "ionicons": "^5.0.0",
     "react": "^16.13.0",
     "react-canvas-draw": "^1.1.1",
