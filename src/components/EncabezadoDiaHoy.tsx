@@ -72,7 +72,7 @@ const EncabezadoDiaHoy: React.FC = () => {
             />
           
             <IonThumbnail slot="end">
-            <img alt='' src={require('../assest/image/logofull.png') } width="40" height="40" />
+            <img alt='' src={require('../assest/image/logofull.png') } width="40" height="60" />
           </IonThumbnail>
         </IonItem>
         <IonModal isOpen={showModal} cssClass='modal-class' onDidDismiss={() => setShowModal(false)} >
