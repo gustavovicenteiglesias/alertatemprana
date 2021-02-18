@@ -16,6 +16,11 @@ export const SlidesExample: React.FC = () => {
     speed: 400
   };
 return(
+  <>
+  <div style={{background:"#ffffff",textAlign:"center"}}>
+  <h2 style={{marginLeft:"8px"}}>Pronostico a siete días </h2>
+  </div>
+  
     <IonSlides pager={true} options={slideOpts}>
       <IonSlide>
         <ExtendidoVertical/>
@@ -24,6 +29,7 @@ return(
         <ExtendidoVerticalUno/>
       </IonSlide>
     </IonSlides>
+    </>
 )
 };
 export default SlidesExample

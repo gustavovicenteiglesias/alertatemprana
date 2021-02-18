@@ -18,10 +18,13 @@ const EncabezadoDiaHoy: React.FC = () => {
     const AM = useGetAM()
     let alerta= false
     let dh=null;
+    let dhdescription=null;
     if (typeof(diahoy?.weather.id) === 'undefined') {
      dh="20";
+     dhdescription="";
     }else{
       dh=diahoy?.weather.id
+      dhdescription=diahoy?.weather.description
     }
     if (AM?.data.estado === 1) {
       alerta=false
@@ -52,6 +55,8 @@ const EncabezadoDiaHoy: React.FC = () => {
             displayFormat="DDDD DD MMMM YYYY "
             readonly={true} 
             value={diahoy?.date}
+            disabled
+            style={{opacity:"0.99"}}
           />
           </h6>
           </IonText>      
@@ -59,7 +64,7 @@ const EncabezadoDiaHoy: React.FC = () => {
             
         <IonItem>
           <IonThumbnail slot="start">
-            <img alt="" src={require('../assest/image/'+dh +'.png')} />
+            <img alt={dhdescription} src={require('../assest/image/'+dh +'.png')} />
           </IonThumbnail>
             <IonLabel>
               <IonText color="light">
@@ -72,7 +77,7 @@ const EncabezadoDiaHoy: React.FC = () => {
             />
           
             <IonThumbnail slot="end">
-            <img alt='' src={require('../assest/image/logofull.png') } width="40" height="40" />
+            <img alt='San Antonio de Areco' src={require('../assest/image/logofull.png') } width="40" height="40" />
           </IonThumbnail>
         </IonItem>
         <IonModal isOpen={showModal} cssClass='modal-class' onDidDismiss={() => setShowModal(false)} >

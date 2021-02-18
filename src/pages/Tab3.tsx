@@ -1,9 +1,17 @@
 import React from 'react';
-import { IonButton, IonButtons, IonContent, IonFabButton, IonHeader, IonIcon, IonItem, IonLabel, IonMenuButton, IonPage, IonText, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import {  IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonText, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
+
 import './Tab3.css';
 import {CallNumber} from "@ionic-native/call-number"
-import { call, home } from 'ionicons/icons';
+import { call } from 'ionicons/icons';
+const Icono=()=>{
+
+    return (
+        <IonIcon icon={call} color="success" ariaLabel="Telefono" style={{ marginRight:"10px"}}/>
+    )
+}
+
+
 
 const Tab3: React.FC = () => {
 
@@ -25,7 +33,7 @@ return (
               </IonText>
             </IonLabel>
             <IonThumbnail slot="end">
-            <img alt="" src={require('../assest/image/logofull.png') } width="40" height="40" />
+            <img alt="Logo San Antonio de Areco" src={require('../assest/image/logofull.png') } width="40" height="40" />
           </IonThumbnail>
         </IonItem>
             </IonToolbar>
@@ -35,56 +43,39 @@ return (
         <IonItem>
             <IonLabel >Atención al vecino</IonLabel>
                 
-            <IonButton  color="success" onClick={() => Call("2326470665")} disabled>
-                <IonIcon icon={call}  />
-            </IonButton>
+            {/*<IonButton  color="success" onClick={() => Call("2326470665")} disabled>*/}
+            <Icono/>
+            {/*</IonButton>*/}
             2326470665
         </IonItem>
         <IonItem>
             <IonLabel >Policia</IonLabel>
-            <IonButton disabled color="success" onClick={() => Call("2326452113")}>
-                <IonIcon icon={call}  />
-                </IonButton>
+            <Icono/>
                 2326452113
         </IonItem>
-        <IonItem>
+        <IonItem >
             <IonLabel >Bomberos</IonLabel>
-           
-           <IonButton disabled color="success" onClick={() => Call("100")}>
-                <IonIcon icon={call}  />
-            </IonButton>
-            100
+            <Icono />
+            <span style={{marginRight:"60px"}}>100</span>
         </IonItem>
-        <IonItem>
+        <IonItem >
             <IonLabel >Hospital</IonLabel>
-           
-           <IonButton disabled color="success" onClick={() => Call("107")}>
-                <IonIcon icon={call}  />
-            </IonButton>
-            107  
+            <Icono/>
+            <span style={{marginRight:"60px"}}>107</span> 
         </IonItem>
         <IonItem>
             <IonLabel >Desarrollo Social</IonLabel>
-            
-            <IonButton disabled color="success" onClick={() => Call("2326470661")}>
-                <IonIcon icon={call}  />
-            </IonButton>
+            <Icono/>
             2326470661
         </IonItem>
         <IonItem>
             <IonLabel >CEOSP</IonLabel>
-            
-            <IonButton disabled color="success" onClick={() => Call("2326452525")}>
-                <IonIcon icon={call}  />
-        </IonButton>
+            <Icono/>
             2326452525
         </IonItem>
         <IonItem>
             <IonLabel >Sanear</IonLabel>
-            
-            <IonButton disabled  color="success" onClick={() => Call("2326452391")}>
-                <IonIcon icon={call}  />
-            </IonButton>
+            <Icono/>
             2326452391
         </IonItem>
 

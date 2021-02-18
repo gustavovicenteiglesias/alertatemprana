@@ -18,6 +18,7 @@ const Tab1: React.FC = () => {
     <IonPage>
     <IonContent >
     <EncabezadoDiaHoy></EncabezadoDiaHoy>
+    
     <Rio></Rio>
     <Extendido></Extendido>
     <RegistroLLuvias></RegistroLLuvias>

@@ -1,30 +1,43 @@
-import React, { useState,useEffect } from 'react';
-import { IonAlert, IonAvatar, IonButton, IonCard, 
-  IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, 
-  IonCol, IonContent, IonDatetime, IonGrid, IonHeader, IonIcon, IonItem, IonItemGroup, IonLabel, IonList, 
-  IonListHeader, IonPage, IonProgressBar, IonRouterLink, IonRow, IonText,
-   IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
+import React from 'react';
+import { IonCol,  IonDatetime, IonGrid,  IonIcon, IonRow, IonThumbnail } from '@ionic/react';
 
 import './Extendido.css';
-import { happy, water } from 'ionicons/icons';
+import { water } from 'ionicons/icons';
 import { useGetDia, useGetForescast } from '../hooks/Consultas';
 
 
 
 const Extendido: React.FC = () => {
+ 
+  const Linea=()=>{
+    return ( 
+    
+           <hr style={{
+    color: '#rgba(82, 82, 81, 0.30)',
+    backgroundColor: 'rgba(82, 82, 81, 0.30)',
+    height: .5,
+    borderColor : 'rgba(82, 82, 81, 0.30)',
+   }}/>
+    
+    )
+  }
+    
   
-  const [showAlert1, setShowAlert1] = useState(true);
-  const [pronostico, setPronostico] = useState();
+  
   const data= useGetForescast()
   const diahoy= useGetDia()
-  const diasemana="DOM,LUN,MAR,MIE,JUE,VIE,SAB"
+  let diasemana="DOMINGO,LUNES,MARTES,MIERCOLES,JUEVES,VIERNES,SABADO"
+  if(window.screen.width < 1000)diasemana="DOM,LUN,MAR,MIE,JUE,VIE,SAB";
   if (data.length === 0) return null;
   
   let dh=null;
+  let dhdescription=null;
    if (typeof(diahoy?.weather.id) === 'undefined') {
       dh="3";
+      dhdescription="";
   }else{
        dh=diahoy?.weather.id
+       dhdescription=diahoy?.weather.description;
    }
   
    let visible=false;
@@ -39,6 +52,15 @@ const Extendido: React.FC = () => {
      lluvia[0]=data[0]?.morning.rain_prob_range[0];
      lluvia[1]= data[0]?.morning.rain_prob_range[1];
    }
+   
+   const Icono1=()=>{
+    return <IonIcon icon={water} ariaLabel="Probabilidad de precipitaciones"  size="small" hidden={visible} />
+   }
+    
+   
+   const Icono =()=>{
+    return <IonIcon icon={water} ariaLabel="Probabilidad de precipitaciones"  size="small" hidden={false} />
+  }
   return (
     
     <>
@@ -56,29 +78,23 @@ const Extendido: React.FC = () => {
               displayFormat="DDDD" 
               disabled={true}
               className="texto-dia"
+              
               >
               </IonDatetime>
-              <div className="texto">
-                Tmin  {data[0].temp_min}° 
+              <div className="texto" >
+                <span >MIN  {data[0].temp_min}° </span>
+                
               </div>  
               <div className="texto">
-                Tmax  {data[0].temp_max}° 
-              </div>
-              <hr  style={{
-                  color: '#rgba(82, 82, 81, 0.30)',
-                  backgroundColor: 'rgba(82, 82, 81, 0.30)',
-                  height: .5,
-                  borderColor : 'rgba(82, 82, 81, 0.30)',
-                 
-              }}/>
-              <div  >
+                <span >MAX  {data[0].temp_max}° </span>
+              <Linea/>
               <IonThumbnail  className="foto" >
-              <img alt="" src={require('../assest/image/'+dh+'.png')} width="auto" height="40" hidden={visible} />
+              <img alt={dhdescription} src={require('../assest/image/'+dh+'.png')} width="auto" height="40" hidden={visible} />
               </IonThumbnail>
               </div>
               
               <IonRow   className="lluvia"  >
-              <IonIcon icon={water}  size="small"hidden={visible} />
+              <Icono1/>
               
                     <div className="texto" hidden={visible} >
                     {lluvia[0] }-{lluvia[1]}%
@@ -86,19 +102,13 @@ const Extendido: React.FC = () => {
                     <br hidden={!visible}/>
               
               </IonRow>
-              <hr  style={{
-                  color: '#rgba(82, 82, 81, 0.30)',
-                  backgroundColor: 'rgba(82, 82, 81, 0.30)',
-                  height: .5,
-                  borderColor : 'rgba(82, 82, 81, 0.30)',
-                 
-              }}/>
+              <Linea/>
               
               <IonThumbnail className="foto">
-              <img alt="" src={require('../assest/image/'+data[0]?.night.weather.id+'.png')} width="auto" height="40"  />
+              <img alt={data[0]?.night.weather.description} src={require('../assest/image/'+data[0]?.night.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
-              <IonIcon icon={water}  size="small" />
+              <Icono/>
               <div className="texto">
               {data[0]?.night.rain_prob_range[0]}-{data[0]?.night.rain_prob_range[1]}%
               </div>
@@ -114,45 +124,34 @@ const Extendido: React.FC = () => {
               displayFormat="DDDD" 
               disabled={true}
               className="texto-dia"
+
               >
               </IonDatetime>
               <div className="texto">
-                Tmin  {data[1].temp_min}° 
+                MIN  {data[1].temp_min}° 
               </div>  
               <div className="texto">
-                Tmax  {data[1].temp_max}° 
+                MAX  {data[1].temp_max}° 
               </div>
-              <hr  style={{
-                  color: '#rgba(82, 82, 81, 0.30)',
-                  backgroundColor: 'rgba(82, 82, 81, 0.30)',
-                  height: .5,
-                  borderColor : 'rgba(82, 82, 81, 0.30)',
-                 
-              }}/>
+              <Linea/>
               <div  >
               <IonThumbnail  className="foto">
-              <img alt="" src={require('../assest/image/'+data[1]?.morning.weather.id+'.png')}
+              <img alt={data[1]?.morning.weather.description} src={require('../assest/image/'+data[1]?.morning.weather.id+'.png')}
                width="auto" height="40" hidden={false}/>
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
-              <IonIcon icon={water}  size="small" />
+              <Icono/>
               <div className="texto">
               {data[1]?.morning.rain_prob_range[0]}-{data[1]?.morning.rain_prob_range[1]}%
               </div>
               </IonRow>
-              <hr  style={{
-                  color: '#rgba(82, 82, 81, 0.30)',
-                  backgroundColor: 'rgba(82, 82, 81, 0.30)',
-                  height: .5,
-                  borderColor : 'rgba(82, 82, 81, 0.30)',
-                 
-              }}/>
+              <Linea/>
               </div>
               <IonThumbnail className="foto">
-              <img alt="" src={require('../assest/image/'+data[1]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
+              <img alt={data[1]?.afternoon.weather.description} src={require('../assest/image/'+data[1]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
-              <IonIcon icon={water}  size="small" />
+              <Icono/>
               <div className="texto">
               {data[1]?.afternoon.rain_prob_range[0]}-{data[1]?.afternoon.rain_prob_range[1]}%
               </div>
@@ -171,42 +170,30 @@ const Extendido: React.FC = () => {
               >
               </IonDatetime>
               <div className="texto">
-                Tmin  {data[2].temp_min}° 
+                MAX  {data[2].temp_min}° 
               </div>  
               <div className="texto">
-                Tmax  {data[2].temp_max}° 
+                MIN {data[2].temp_max}° 
               </div>
-              <hr  style={{
-                  color: '#rgba(82, 82, 81, 0.30)',
-                  backgroundColor: 'rgba(82, 82, 81, 0.30)',
-                  height: .5,
-                  borderColor : 'rgba(82, 82, 81, 0.30)',
-                 
-              }}/>
+              <Linea/>
               <div  >
               <IonThumbnail  className="foto">
-              <img alt="" src={require('../assest/image/'+data[2]?.morning.weather.id+'.png')} 
+              <img alt={data[2]?.morning.weather.description} src={require('../assest/image/'+data[2]?.morning.weather.id+'.png')} 
                width="auto" height="40" hidden={false}/>
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
-              <IonIcon icon={water}  size="small" />
+              <Icono/>
               <div className="texto">
               {data[2]?.morning.rain_prob_range[0]}-{data[2]?.morning.rain_prob_range[1]}%
               </div>
               </IonRow>
-              <hr  style={{
-                  color: '#rgba(82, 82, 81, 0.30)',
-                  backgroundColor: 'rgba(82, 82, 81, 0.30)',
-                  height: .5,
-                  borderColor : 'rgba(82, 82, 81, 0.30)',
-                 
-              }}/>
+              <Linea/>
               </div>
               <IonThumbnail className="foto">
-              <img alt=""  src={require('../assest/image/'+data[2]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
+              <img alt={data[2]?.afternoon.weather.description}  src={require('../assest/image/'+data[2]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
-              <IonIcon icon={water}  size="small" />
+              <Icono/>
               <div className="texto">
               {data[2]?.afternoon.rain_prob_range[0]}-{data[2]?.afternoon.rain_prob_range[1]}%
               </div>
@@ -224,42 +211,30 @@ const Extendido: React.FC = () => {
               >
               </IonDatetime>
               <div className="texto">
-                Tmin  {data[3].temp_min}° 
+                MIN  {data[3].temp_min}° 
               </div>  
               <div className="texto">
-                Tmax  {data[3].temp_max}° 
+                MAX  {data[3].temp_max}° 
               </div> 
-              <hr  style={{
-                  color: '#rgba(82, 82, 81, 0.30)',
-                  backgroundColor: 'rgba(82, 82, 81, 0.30)',
-                  height: .5,
-                  borderColor : 'rgba(82, 82, 81, 0.30)',
-                 
-              }}/>
+              <Linea/>
               <div  >
               <IonThumbnail  className="foto">
-              <img alt="" src={require('../assest/image/'+data[3]?.morning.weather.id+'.png')} 
+              <img alt={data[3]?.morning.weather.description} src={require('../assest/image/'+data[3]?.morning.weather.id+'.png')} 
                width="auto" height="40" hidden={false}/>
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
-              <IonIcon icon={water}  size="small" />
+              <Icono/>
               <div className="texto">
                     {data[3]?.morning.rain_prob_range[0]}-{data[3]?.morning.rain_prob_range[1]}%
                     </div>
               </IonRow>
-              <hr  style={{
-                  color: '#rgba(82, 82, 81, 0.30)',
-                  backgroundColor: 'rgba(82, 82, 81, 0.30)',
-                  height: .5,
-                  borderColor : 'rgba(82, 82, 81, 0.30)',
-                 
-              }}/>
+              <Linea/>
               </div>
               <IonThumbnail className="foto">
-              <img alt="" src={require('../assest/image/'+data[3]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
+              <img alt={data[3]?.afternoon.weather.description} src={require('../assest/image/'+data[3]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
-              <IonIcon icon={water}  size="small" />
+              <Icono/>
               <div className="texto">
               {data[3]?.afternoon.rain_prob_range[0]}-{data[3]?.afternoon.rain_prob_range[1]}%
               </div>

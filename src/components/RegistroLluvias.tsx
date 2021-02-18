@@ -9,6 +9,9 @@ const RegistroLLuvias: React.FC = () => {
     
         
            <div >
+               <div style={{background:"#ffffff",textAlign:"center"}}>
+               <h2 style={{marginLeft:"8px"}}>Registros de lluvias</h2>
+            </div>
           <IonCard >
               <IonItem>
                   <IonItem>
