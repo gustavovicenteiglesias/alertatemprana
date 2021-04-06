@@ -49,7 +49,7 @@ const EncabezadoDiaHoy: React.FC = () => {
           <IonText >
             <h6 className="dias">
           <IonDatetime
-            display-timezone="utc" 
+           
             day-names={diasemana}
             monthNames={mes}
             displayFormat="DDDD DD MMMM YYYY "
@@ -89,7 +89,7 @@ const EncabezadoDiaHoy: React.FC = () => {
                 </h4>
                 <p  >
               <IonDatetime
-                display-timezone="utc" 
+               
                 day-names={diasemana}
                 monthNames={mes}
                 displayFormat="DDDD DD MMMM YYYY "
@@ -98,10 +98,10 @@ const EncabezadoDiaHoy: React.FC = () => {
                 className="color-text"
                 />
                 <IonDatetime
-                display-timezone="utc" 
+               
                 day-names={diasemana}
                 monthNames={mes}
-                displayFormat="hh mm "
+                displayFormat="HH: mm: ss"
                 readonly={true} 
                 value={AM?.data.hora}
                 className="color-text"
