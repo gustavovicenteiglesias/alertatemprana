@@ -38,8 +38,8 @@ import { Plugins, Capacitor } from '@capacitor/core';
 
 import {  PushNotification, PushNotificationToken, PushNotificationActionPerformed } from '@capacitor/core';
 import axios from 'axios';
-//import { FCM } from '@capacitor-community/fcm';
-//const fcm = new FCM();
+import { FCM } from '@capacitor-community/fcm';
+const fcm = new FCM();
 const { PushNotifications, FCMPlugin} = Plugins;
 const App: React.FC = () => {
   
