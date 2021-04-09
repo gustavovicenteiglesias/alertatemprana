@@ -1,11 +1,10 @@
 import React, { useState,useEffect } from 'react';
-import { IonAvatar, IonButton, IonButtons, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol,IonContent,IonDatetime,IonFooter,IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonList, IonModal, IonPage,  IonRow, IonText,
-  IonThumbnail,
-            IonTitle, IonToolbar } from '@ionic/react';
+import {  IonButton, IonButtons,IonContent,IonDatetime,IonFooter,IonHeader,  IonItem, IonLabel,  IonModal,  IonText,
+  IonThumbnail, IonToolbar } from '@ionic/react';
 
 import './Extendido.css';
-import {closeOutline, add}from 'ionicons/icons';
-import { useGetDia, useGetForescast,useGetAM } from '../hooks/Consultas';
+
+import { useGetDia, useGetAM } from '../hooks/Consultas';
 import { Plugins } from '@capacitor/core';
 
 
@@ -80,7 +79,7 @@ const EncabezadoDiaHoy: React.FC = () => {
             <img alt='San Antonio de Areco' src={require('../assest/image/logofull.png') } width="40" height="40" />
           </IonThumbnail>
         </IonItem>
-        <IonModal isOpen={showModal} cssClass='modal-class' onDidDismiss={() => setShowModal(false)} >
+        <IonModal isOpen={showModal}  cssClass='modal-class' onDidDismiss={() => setShowModal(false)} >
         <IonHeader translucent>
             <IonToolbar>
              

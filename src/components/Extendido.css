@@ -44,7 +44,7 @@ h4.color-text{
 }
 .modal-class{
 
-    
+    --border-radius:10px;
     --height: 500px;
     --width:300px ;
 }
