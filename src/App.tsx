@@ -31,15 +31,15 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-import {Botonatras}from './components/useBotonatras'
+//import {Botonatras}from './components/useBotonatras'
 /* Theme variables */
 import './theme/variables.css';
 import { Plugins, Capacitor } from '@capacitor/core';
 
-import {  PushNotification, PushNotificationToken, PushNotificationActionPerformed } from '@capacitor/core';
+import {   PushNotificationToken } from '@capacitor/core';
 import axios from 'axios';
 import { FCM } from '@capacitor-community/fcm';
-const fcm = new FCM();
+//const fcm = new FCM();
 const { PushNotifications, FCMPlugin} = Plugins;
 const App: React.FC = () => {
   
@@ -76,7 +76,7 @@ const App: React.FC = () => {
       ); 
       PushNotifications.addListener('registrationError',
         (error: any) => {
-          alert('Error on registration: ' + JSON.stringify(error));
+         // alert('Error on registration: ' + JSON.stringify(error));
         }
       );
 

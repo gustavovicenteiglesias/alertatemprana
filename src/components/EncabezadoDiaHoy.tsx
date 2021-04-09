@@ -25,6 +25,7 @@ const EncabezadoDiaHoy: React.FC = () => {
     }
     if (AM?.data.estado === 1) {
       alerta=false
+      
     } else {
       alerta=true
     }
@@ -38,6 +39,7 @@ const EncabezadoDiaHoy: React.FC = () => {
       });
   
   }
+  console.log(AM?.data.hora)
   return (
     
     < >
@@ -96,7 +98,7 @@ const EncabezadoDiaHoy: React.FC = () => {
                 display-timezone="utc" 
                 day-names={diasemana}
                 monthNames={mes}
-                displayFormat="hh mm "
+                displayFormat="HH mm "
                 readonly={true} 
                 value={AM?.data.hora}
                 className="color-text"
