@@ -6,6 +6,18 @@ h4.color-text{
 
     margin-left: 1px;
 }
+.ionTolbar-corto{
+    --background: rgb(168, 32,74,0.55);
+}
+.modal-button-corto{
+    background: rgb(168, 32,74,0.55);
+}
+.modal-footer-corto{
+    background: rgb(168, 32,74,0.55);
+}
+.color-fondo-corto{
+    --background: rgb(168, 32,74,0.25);
+}
 .foto{
     margin: auto;
 }
@@ -44,7 +56,7 @@ h4.color-text{
 }
 .modal-class{
 
-    
+    --border-radius: 10px;
     --height: 500px;
     --width:300px ;
 }

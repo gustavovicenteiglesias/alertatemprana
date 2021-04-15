@@ -1,6 +1,6 @@
 {
   "appId": "io.areco.starter",
-  "appName": "SATAreco",
+  "appName": "SAT Areco",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",

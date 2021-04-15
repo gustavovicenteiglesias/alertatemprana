@@ -1,7 +1,24 @@
 import { useEffect, useState } from "react";
 import { get} from "./Tiempo";
-import { APIResponse, Dia, Forescast,  APISituacion, ApiRegistros, AlertaMUltimo,ApiToken } from "./Tipos";
+import { APIResponse, Dia, Forescast,  APISituacion, ApiRegistros, AlertaMUltimo,CortoPlazoUltimo } from "./Tipos";
 
+export const useGetCP = () => {
+  const [cortoPlazo , setcortoPlazo ] = useState<CortoPlazoUltimo>();
+  const getData = async () => {
+    const  alertas = await get<CortoPlazoUltimo>('http://webnueva.areco.gob.ar:9526/v1/cortoplazo/ultimo');
+    setcortoPlazo(alertas)
+    }
+    useEffect(()=>{
+      getData()
+      const interval = setInterval(() => {
+        getData()
+        
+      }, 1000000);
+      return () => clearInterval(interval);
+},[]);
+
+  return cortoPlazo;
+}
 
 export const useGetAM = () => {
   const [aMeteologico , setAMeteologico ] = useState<AlertaMUltimo>();

@@ -4,6 +4,21 @@
     type:string,
     updated:Date
   }*/
+  export interface CortoPlazoUltimo{
+    success: boolean,
+    message: string,
+    data:CortoPlazo
+  }
+  export interface CortoPlazo{
+     
+      id: number,
+      hora: string,
+      fecha: string,
+      titulo: string,
+      contenido: string,
+      imagen: string
+     
+  }
   export interface AlertaMUltimo{
     data: {
       id: number,

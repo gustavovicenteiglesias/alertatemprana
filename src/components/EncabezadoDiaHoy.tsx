@@ -1,22 +1,27 @@
 import React, { useState,useEffect } from 'react';
-import { IonAvatar, IonButton, IonButtons, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol,IonContent,IonDatetime,IonFooter,IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonList, IonModal, IonPage,  IonRow, IonText,
-  IonThumbnail,
-            IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons,IonContent,IonDatetime,IonFooter,IonHeader, IonItem, IonLabel, IonModal, IonText,IonThumbnail, IonToolbar } from '@ionic/react';
 
 import './Extendido.css';
-import {closeOutline, add}from 'ionicons/icons';
-import { useGetDia, useGetForescast,useGetAM } from '../hooks/Consultas';
+
+import { useGetDia, useGetCP,useGetAM } from '../hooks/Consultas';
 import { Plugins } from '@capacitor/core';
+
 
 
 
 const EncabezadoDiaHoy: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showModalCorto, setShowModalCorto] = useState(false);
   const diasemana="Domingo,Lunes,Martes,Miércoles,Jueves,Viernes,Sábado"
   const mes="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre";
-    const diahoy= useGetDia()
+  
+  const diahoy= useGetDia()
     const AM = useGetAM()
-    let alerta= false
+    const CP=useGetCP();
+    if (typeof(CP)  === 'undefined') return null;
+    let hoy=new Date();
+    let alerta= false;
+    let cortoplazo=false;
     let dh=null;
     if (typeof(diahoy?.weather.id) === 'undefined') {
      dh="20";
@@ -39,7 +44,37 @@ const EncabezadoDiaHoy: React.FC = () => {
       });
   
   }
-  console.log(AM?.data.hora)
+  //corto plazo
+  let anio=CP?.data.fecha.slice(0,4);
+  let mes1=CP?.data.fecha.slice(5,7);
+  let dia=CP?.data.fecha.slice(8,10);
+  let hh=CP?.data.hora.slice(0,2);
+  let mm=CP?.data.hora.slice(3,5);
+  if ( typeof(anio)  !== 'undefined'&& typeof(mes1)  !== 'undefined'&& typeof(dia)  !== 'undefined'){
+      console.log(parseInt(dia))
+      let anioac=hoy.getFullYear();
+      let mmactual=hoy.getMonth()+1;
+      let diahoy=hoy.getDate();
+      if (diahoy===parseInt(dia)&&mmactual===parseInt(mes1)&&anioac===parseInt(anio) ){
+          let hhActual=hoy.getHours();
+          let mmActual=hoy.getMinutes();
+          let totalmMinActuales=(hhActual*60)+mmActual;
+        
+            if(typeof(hh) !== 'undefined'&& typeof(mm) !== 'undefined' ){
+                let totalMinutos=((parseInt(hh)*60)+parseInt(mm))+180;
+                console.log(totalmMinActuales);
+                console.log(totalMinutos);
+                if(totalmMinActuales<=totalMinutos)
+                  {
+                  cortoplazo=false;
+                  }else {cortoplazo=true;};
+              }
+          }else {cortoplazo=true;}
+      
+      
+        }
+      
+ ///////fin corto plazo//////////
   return (
     
     < >
@@ -68,7 +103,9 @@ const EncabezadoDiaHoy: React.FC = () => {
               <h1>{diahoy?.temperature}°</h1>
               </IonText>
             </IonLabel>
-            
+            <img alt='' src={require('../assest/image/alertas/atencion.png') } width="30" height="30" 
+            hidden={cortoplazo} onClick={() => setShowModalCorto(true)}
+            />
             <img alt='' src={require('../assest/image/alertas/admeteo.png') } width="30" height="30" 
             hidden={alerta} onClick={() => setShowModal(true)}
             />
@@ -120,6 +157,58 @@ const EncabezadoDiaHoy: React.FC = () => {
           <IonButtons slot="secondary" >
           <IonFooter className="modal-footer" >
             <IonButton class="modal-button" expand="full" onClick={compartir} >Compartir</IonButton>
+          </IonFooter>
+          </IonButtons>
+        
+       
+        
+      </IonModal>
+      
+      <IonModal isOpen={showModalCorto} cssClass='modal-class' onDidDismiss={() => setShowModalCorto(false)} >
+        <IonHeader translucent>
+            <IonToolbar className="ionTolbar-corto">
+             
+                <h4 className="color-text">
+                Aviso a Corto Plazo
+                </h4>
+                <p  >
+
+              <IonDatetime
+                display-timezone="utc" 
+                day-names={diasemana}
+                monthNames={mes}
+                displayFormat="DDDD DD MMMM YYYY "
+                readonly={true} 
+                value={CP?.data.fecha}
+                className="color-text"
+                />
+                <IonDatetime
+                display-timezone="utc" 
+                day-names={diasemana}
+                monthNames={mes}
+                displayFormat="HH mm "
+                readonly={true} 
+                value={CP?.data.hora}
+                className="color-text"
+                />
+                </p>
+                <IonButtons slot="end">
+                  <IonButton  onClick={() => setShowModalCorto(false)}>
+                    X
+                  </IonButton>
+                </IonButtons>
+                
+            </IonToolbar>
+          </IonHeader>
+          <IonContent fullscreen className="color-fondo-corto">
+            <p style={{justifyContent:"center",display:"flex"}}>{CP?.data.contenido}</p>
+            <div style={{justifyContent:"center",display:"flex"}}>
+            <img alt='Tipo de Alerta' src={require('../assest/image/'+CP?.data.imagen) } width="60" height="60" />
+            </div>
+          </IonContent>
+          <IonButtons slot="secondary" >
+          <IonFooter className="modal-footer-corto" >
+            <IonButton class="modal-button-corto" expand="full" onClick={compartir} >Compartir</IonButton>
           </IonFooter>
           </IonButtons>
         
