@@ -1,22 +1,18 @@
-import React, { useState,useEffect } from 'react';
-import { IonAlert, IonAvatar, IonButton, IonCard, 
-  IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, 
-  IonCol, IonContent, IonDatetime, IonGrid, IonHeader, IonIcon, IonItem, IonItemGroup, IonLabel, IonList, 
-  IonListHeader, IonPage, IonProgressBar, IonRouterLink, IonRow, IonText,
-   IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
+import React from 'react';
+import {IonCol,  IonDatetime, IonGrid,  IonIcon, IonLabel, IonRow,IonThumbnail } from '@ionic/react';
 
 import './Extendido.css';
-import { happy, water } from 'ionicons/icons';
-import { useGetDia, useGetForescast } from '../hooks/Consultas';
-
+import { water } from 'ionicons/icons';
+import {  useGetForescast } from '../hooks/Consultas';
+import tmax from "../assest/image/tmax.png";
+import tmin from "../assest/image/tmin.png";
 
 
 const Extendido: React.FC = () => {
   
-  const [showAlert1, setShowAlert1] = useState(true);
-  const [pronostico, setPronostico] = useState();
+ 
   const data= useGetForescast()
-  const diahoy= useGetDia()
+  
   const diasemana="DOM,LUN,MAR,MIE,JUE,VIE,SAB"
   if (data.length === 0) return null;
  
@@ -41,12 +37,22 @@ const Extendido: React.FC = () => {
               className="texto-dia"
               >
               </IonDatetime>
+              <div className="texto" style={{ marginTop:"10px"}}>
+             <span>
+              <img alt="" src={tmin} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[4].temp_min}° </h5> 
+               </span>
+              </div> 
               <div className="texto">
-                Tmin  {data[4].temp_min}° 
-              </div>  
-              <div className="texto">
-                Tmax  {data[4].temp_max}° 
-              </div>
+             <span>
+              <img alt="" src={tmax} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[4].temp_max}° </h5> 
+               </span>
+              </div> 
               <hr  style={{
                   color: '#rgba(82, 82, 81, 0.30)',
                   backgroundColor: 'rgba(82, 82, 81, 0.30)',
@@ -77,7 +83,7 @@ const Extendido: React.FC = () => {
               }}/>
               
               <IonThumbnail className="foto">
-              <img src={require('../assest/image/'+data[4]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
+              <img alt="" src={require('../assest/image/'+data[4]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
               <IonIcon icon={water}  size="small" />
@@ -100,12 +106,22 @@ const Extendido: React.FC = () => {
               className="texto-dia"
               >
               </IonDatetime>
+              <div className="texto" style={{ marginTop:"10px"}}>
+             <span>
+              <img alt="" src={tmin} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[5].temp_min}° </h5> 
+               </span>
+              </div> 
               <div className="texto">
-                Tmin  {data[5].temp_min}° 
-              </div>  
-              <div className="texto">
-                Tmax  {data[5].temp_max}° 
-              </div>
+             <span>
+              <img alt="" src={tmax} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[5].temp_max}° </h5> 
+               </span>
+              </div> 
               <hr  style={{
                   color: '#rgba(82, 82, 81, 0.30)',
                   backgroundColor: 'rgba(82, 82, 81, 0.30)',
@@ -115,7 +131,7 @@ const Extendido: React.FC = () => {
               }}/>
               <div  >
               <IonThumbnail  className="foto">
-              <img src={require('../assest/image/'+data[5]?.morning.weather.id+'.png')}
+              <img alt="" src={require('../assest/image/'+data[5]?.morning.weather.id+'.png')}
                width="auto" height="40" hidden={false}/>
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
@@ -135,7 +151,7 @@ const Extendido: React.FC = () => {
               }}/>
               </div>
               <IonThumbnail className="foto">
-              <img src={require('../assest/image/'+data[5]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
+              <img alt="" src={require('../assest/image/'+data[5]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
               <IonIcon icon={water}  size="small" />
@@ -158,12 +174,22 @@ const Extendido: React.FC = () => {
               className="texto-dia"
               >
               </IonDatetime>
+              <div className="texto" style={{ marginTop:"10px"}}>
+             <span>
+              <img alt="" src={tmin} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[6].temp_min}° </h5> 
+               </span>
+              </div> 
               <div className="texto">
-                Tmin  {data[6].temp_min}° 
-              </div>  
-              <div className="texto">
-                Tmax  {data[6].temp_max}° 
-              </div>
+             <span>
+              <img alt="" src={tmax} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[6].temp_max}° </h5> 
+               </span>
+              </div> 
               <hr  style={{
                   color: '#rgba(82, 82, 81, 0.30)',
                   backgroundColor: 'rgba(82, 82, 81, 0.30)',
@@ -173,7 +199,7 @@ const Extendido: React.FC = () => {
               }}/>
               <div  >
               <IonThumbnail  className="foto">
-              <img src={require('../assest/image/'+data[6]?.morning.weather.id+'.png')} 
+              <img alt="" src={require('../assest/image/'+data[6]?.morning.weather.id+'.png')} 
                width="auto" height="40" hidden={false}/>
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
@@ -193,7 +219,7 @@ const Extendido: React.FC = () => {
               }}/>
               </div>
               <IonThumbnail className="foto">
-              <img src={require('../assest/image/'+data[6]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
+              <img alt="" src={require('../assest/image/'+data[6]?.afternoon.weather.id+'.png')} width="auto" height="40"  />
               </IonThumbnail>
               <IonRow   className="lluvia" hidden={false}>
               <IonIcon icon={water}  size="small" />
@@ -209,10 +235,10 @@ const Extendido: React.FC = () => {
             {/*dia3*/}
           <IonCol className="extendidoVertical">
           <div className="texto">
-               Fuente:
+               <h5>Fuente:</h5>
               </div>  
               <div className="texto">
-               SMN
+               <h5>SMN</h5>
               </div>
              
             </IonCol>

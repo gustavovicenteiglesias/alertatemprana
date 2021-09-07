@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">dialogo</string>
+    <string name="salir">Salir</string>
+    <string name="confirmacion">¿Está seguro que desea salir?</string>
+    <string name="aceptar">Si, muy seguro!</string>
+    <string name="cancelar">Mejor no, me quedo!</string>
+
+</resources>

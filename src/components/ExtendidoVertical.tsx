@@ -1,20 +1,15 @@
 import React, { useState,useEffect } from 'react';
-import { IonAlert, IonAvatar, IonButton, IonCard, 
-  IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, 
-  IonCol, IonContent, IonDatetime, IonGrid, IonHeader, IonIcon, IonItem, IonItemGroup, IonLabel, IonList, 
-  IonListHeader, IonPage, IonProgressBar, IonRouterLink, IonRow, IonText,
-   IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
+import {IonCol, IonDatetime, IonGrid, IonIcon, IonRow,IonThumbnail } from '@ionic/react';
 
 import './Extendido.css';
-import { happy, water } from 'ionicons/icons';
+import { water } from 'ionicons/icons';
 import { useGetDia, useGetForescast } from '../hooks/Consultas';
-
-
+import tmax from "../assest/image/tmax.png";
+import tmin from "../assest/image/tmin.png";
 
 const Extendido: React.FC = () => {
   
-  const [showAlert1, setShowAlert1] = useState(true);
-  const [pronostico, setPronostico] = useState();
+ 
   const data= useGetForescast()
   const diahoy= useGetDia()
   const diasemana="DOM,LUN,MAR,MIE,JUE,VIE,SAB"
@@ -58,12 +53,23 @@ const Extendido: React.FC = () => {
               className="texto-dia"
               >
               </IonDatetime>
+              <div className="texto" style={{ marginTop:"10px"}}>
+             <span>
+              <img alt="" src={tmin} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[0].temp_min}° </h5> 
+               </span>
+              </div> 
               <div className="texto">
-                Tmin  {data[0].temp_min}° 
-              </div>  
-              <div className="texto">
-                Tmax  {data[0].temp_max}° 
-              </div>
+             <span>
+              <img alt="" src={tmax} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[0].temp_max}° </h5> 
+               </span>
+              </div> 
+              
               <hr  style={{
                   color: '#rgba(82, 82, 81, 0.30)',
                   backgroundColor: 'rgba(82, 82, 81, 0.30)',
@@ -116,12 +122,23 @@ const Extendido: React.FC = () => {
               className="texto-dia"
               >
               </IonDatetime>
+              <div className="texto" style={{ marginTop:"10px"}}>
+             <span>
+              <img alt="" src={tmin} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[1].temp_min}° </h5> 
+               </span>
+              </div> 
               <div className="texto">
-                Tmin  {data[1].temp_min}° 
-              </div>  
-              <div className="texto">
-                Tmax  {data[1].temp_max}° 
-              </div>
+             <span>
+              <img alt="" src={tmax} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[1].temp_max}° </h5> 
+               </span>
+              </div> 
+              
               <hr  style={{
                   color: '#rgba(82, 82, 81, 0.30)',
                   backgroundColor: 'rgba(82, 82, 81, 0.30)',
@@ -170,12 +187,22 @@ const Extendido: React.FC = () => {
               className="texto-dia"
               >
               </IonDatetime>
+              <div className="texto" style={{ marginTop:"10px"}}>
+             <span>
+              <img alt="" src={tmin} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[2].temp_min}° </h5> 
+               </span>
+              </div> 
               <div className="texto">
-                Tmin  {data[2].temp_min}° 
-              </div>  
-              <div className="texto">
-                Tmax  {data[2].temp_max}° 
-              </div>
+             <span>
+              <img alt="" src={tmax} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[2].temp_max}° </h5> 
+               </span>
+              </div> 
               <hr  style={{
                   color: '#rgba(82, 82, 81, 0.30)',
                   backgroundColor: 'rgba(82, 82, 81, 0.30)',
@@ -223,11 +250,21 @@ const Extendido: React.FC = () => {
               className="texto-dia"
               >
               </IonDatetime>
+              <div className="texto" style={{ marginTop:"10px"}}>
+             <span>
+              <img alt="" src={tmin} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[3].temp_min}° </h5> 
+               </span>
+              </div> 
               <div className="texto">
-                Tmin  {data[3].temp_min}° 
-              </div>  
-              <div className="texto">
-                Tmax  {data[3].temp_max}° 
+             <span>
+              <img alt="" src={tmax} style={{ width:"20px",marginRight:"10px"}}  />
+              </span>
+              <span>
+               <h5 style={{display:"inline"}}> {data[3].temp_max}° </h5> 
+               </span>
               </div> 
               <hr  style={{
                   color: '#rgba(82, 82, 81, 0.30)',

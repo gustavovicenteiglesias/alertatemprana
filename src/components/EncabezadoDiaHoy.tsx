@@ -1,8 +1,8 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import { IonButton, IonButtons,IonContent,IonDatetime,IonFooter,IonHeader, IonItem, IonLabel, IonModal, IonText,IonThumbnail, IonToolbar } from '@ionic/react';
 
 import './Extendido.css';
-
+import satblanco from '../assest/satblanco.png';
 import { useGetDia, useGetCP,useGetAM } from '../hooks/Consultas';
 import { Plugins } from '@capacitor/core';
 
@@ -42,9 +42,17 @@ const EncabezadoDiaHoy: React.FC = () => {
         url:'http://www.areco.gob.ar/',
         dialogTitle: 'Compartir'
       });
-  
-  }
+}
+
   //corto plazo
+  const compartirCorto=async ()=>{
+    const  shareRet = await Share.share({
+      title: CP.data.titulo,
+      text: CP.data.contenido,
+      url:'http://www.areco.gob.ar/',
+      dialogTitle: 'Compartir'
+    });
+}
   let anio=CP?.data.fecha.slice(0,4);
   let mes1=CP?.data.fecha.slice(5,7);
   let dia=CP?.data.fecha.slice(8,10);
@@ -62,8 +70,7 @@ const EncabezadoDiaHoy: React.FC = () => {
         
             if(typeof(hh) !== 'undefined'&& typeof(mm) !== 'undefined' ){
                 let totalMinutos=((parseInt(hh)*60)+parseInt(mm))+180;
-                console.log(totalmMinActuales);
-                console.log(totalMinutos);
+               
                 if(totalmMinActuales<=totalMinutos)
                   {
                   cortoplazo=false;
@@ -117,11 +124,19 @@ const EncabezadoDiaHoy: React.FC = () => {
         <IonModal isOpen={showModal} cssClass='modal-class' onDidDismiss={() => setShowModal(false)} >
         <IonHeader translucent>
             <IonToolbar>
-             
-                <h4 className="color-text">
+            <div className="row-header-corto">
+                <span><img alt="Sat" src={satblanco} width="80px" height="80px"/></span>
+                <span><h4 style={{display:"inline", color:"white"}}>
                 {AM?.data.titulo}
                 </h4>
-                <p  >
+                </span>
+               
+                </div>
+             
+               {/* <h4 className="color-text">
+                {AM?.data.titulo}
+                </h4>*/}
+                <p  style={{textAlign:"center"}}>
               <IonDatetime
                 display-timezone="utc" 
                 day-names={diasemana}
@@ -129,7 +144,7 @@ const EncabezadoDiaHoy: React.FC = () => {
                 displayFormat="DDDD DD MMMM YYYY "
                 readonly={true} 
                 value={AM?.data.fecha}
-                className="color-text"
+            
                 />
                 <IonDatetime
                 display-timezone="utc" 
@@ -138,14 +153,14 @@ const EncabezadoDiaHoy: React.FC = () => {
                 displayFormat="HH mm "
                 readonly={true} 
                 value={AM?.data.hora}
-                className="color-text"
+           
                 />
                 </p>
-                <IonButtons slot="end">
+                {/*<IonButtons slot="end">
                   <IonButton  onClick={() => setShowModal(false)}>
                     X
                   </IonButton>
-                </IonButtons>
+              </IonButtons>*/}
                 
             </IonToolbar>
           </IonHeader>
@@ -165,12 +180,17 @@ const EncabezadoDiaHoy: React.FC = () => {
       </IonModal>
       
       <IonModal isOpen={showModalCorto} cssClass='modal-class' onDidDismiss={() => setShowModalCorto(false)} >
-        <IonHeader translucent>
+                
+        <IonHeader>
             <IonToolbar className="ionTolbar-corto">
-             
-                <h4 className="color-text">
+               <div className="row-header-corto">
+                <span><img alt="Sat" src={satblanco} width="80px" height="80px"/></span>
+                <span><h4 style={{display:"inline", color:"white"}}>
                 Aviso a Corto Plazo
                 </h4>
+                </span>
+               
+                </div>
                 <p  >
 
               <IonDatetime
@@ -186,17 +206,13 @@ const EncabezadoDiaHoy: React.FC = () => {
                 display-timezone="utc" 
                 day-names={diasemana}
                 monthNames={mes}
-                displayFormat="HH mm "
+                displayFormat="HH:mm "
                 readonly={true} 
                 value={CP?.data.hora}
                 className="color-text"
                 />
                 </p>
-                <IonButtons slot="end">
-                  <IonButton  onClick={() => setShowModalCorto(false)}>
-                    X
-                  </IonButton>
-                </IonButtons>
+                
                 
             </IonToolbar>
           </IonHeader>
@@ -208,7 +224,7 @@ const EncabezadoDiaHoy: React.FC = () => {
           </IonContent>
           <IonButtons slot="secondary" >
           <IonFooter className="modal-footer-corto" >
-            <IonButton class="modal-button-corto" expand="full" onClick={compartir} >Compartir</IonButton>
+            <IonButton class="modal-button-corto" expand="full" onClick={compartirCorto} >Compartir</IonButton>
           </IonFooter>
           </IonButtons>
         
