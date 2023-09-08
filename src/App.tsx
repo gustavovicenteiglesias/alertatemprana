@@ -64,7 +64,7 @@ const App: React.FC = () => {
         (token: PushNotificationToken) => {
           //alert('Push registration success, token: ' + token.value);
          const data={token_android:token.value}
-          axios.post('http://webnueva.areco.gob.ar:9526/api/token/get', data)
+          axios.post('http://vps-1930664-x.dattaweb.com:9526/api/token/get', data)
           .then(function (response) {
             console.log(response);
           })
