@@ -33,10 +33,10 @@ const Tab3: React.FC = () => {
             <IonContent>
                 <IonItem>
                     <IonLabel >Atención al vecino</IonLabel>
-
-                    <IonButton color="success" onClick={() => Call("2326470665")}>
-                        <IonIcon icon={call} />
-                    </IonButton>
+                    <IonLabel slot='end' className="ion-text-end">2326470665</IonLabel>
+                    {/*<IonButton color="success" onClick={() => Call("2326470665")}>*/}
+                        <IonIcon icon={call} slot='end' color='success'/>
+                    {/*</IonButton>*/}
                 </IonItem>
                 <IonItem>
                     <IonLabel >Policia</IonLabel>
@@ -49,38 +49,38 @@ const Tab3: React.FC = () => {
                 </IonItem>
                 <IonItem>
                     <IonLabel >Bomberos</IonLabel>
-
-                    <IonButton color="success" onClick={() => Call("100")}>
-                        <IonIcon icon={call} />
-                    </IonButton>
+                    <IonLabel slot='end' className="ion-text-end">100</IonLabel>
+                    {/*<IonButton color="success" onClick={() => Call("100")}>*/}
+                        <IonIcon icon={call} slot='end' color='success'/>
+                    {/*</IonButton>*/}
                 </IonItem>
                 <IonItem>
                     <IonLabel >Hospital</IonLabel>
-
-                    <IonButton color="success" onClick={() => Call("107")}>
-                        <IonIcon icon={call} />
-                    </IonButton>
+                    <IonLabel slot='end' className="ion-text-end">107</IonLabel>
+                    {/*<IonButton color="success" onClick={() => Call("107")}>*/}
+                        <IonIcon icon={call} slot='end' color='success'/>
+                    {/*</IonButton>*/}
                 </IonItem>
                 <IonItem>
                     <IonLabel >Desarrollo Social</IonLabel>
-
-                    <IonButton color="success" onClick={() => Call("2326470661")}>
-                        <IonIcon icon={call} />
-                    </IonButton>
+                    <IonLabel slot='end' className="ion-text-end">2326470661</IonLabel>
+                    {/*<IonButton color="success" onClick={() => Call("2326470661")}>*/}
+                        <IonIcon icon={call} slot='end' color='success'/>
+                    {/*</IonButton>*/}
                 </IonItem>
                 <IonItem>
                     <IonLabel >CEOSP</IonLabel>
-
-                    <IonButton color="success" onClick={() => Call("2326452525")}>
-                        <IonIcon icon={call} />
-                    </IonButton>
+                    <IonLabel slot='end' className="ion-text-end">2326452525</IonLabel>
+                    {/*<IonButton color="success" onClick={() => Call("2326452525")}>*/}
+                        <IonIcon icon={call} slot='end' color='success'/>
+                   {/* </IonButton>*/}
                 </IonItem>
                 <IonItem>
                     <IonLabel >Sanear</IonLabel>
-
-                    <IonButton color="success" onClick={() => Call("2326452391")}>
-                        <IonIcon icon={call} />
-                    </IonButton>
+                    <IonLabel slot='end' className="ion-text-end">2326452391</IonLabel>
+                   {/* <IonButton color="success" onClick={() => Call("2326452391")}>*/}
+                        <IonIcon icon={call} slot='end' color='success'/>
+                   {/* </IonButton>*/}
                 </IonItem>
 
             </IonContent>
