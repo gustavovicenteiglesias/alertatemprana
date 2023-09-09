@@ -1,5 +1,6 @@
-
-
+.input-wrapper *{
+    display: flex;
+}
 
 ion-card{
 
